@@ -1,0 +1,300 @@
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+
+{% set overrideHomepageContainer = "" %}
+{% for content in container("Ceres::Homepage")if content.plugin != "Plenty" %}
+  {% set overrideHomepageContainer = overrideHomepageContainer ~ content.result %}
+{% endfor %}
+{% if overrideHomepageContainer | trim is empty %}
+
+  {% set lang = services.sessionStorage.getLang() %}
+
+  {% set slider1 = {
+    item: services.itemLoader.loadForTemplate('Ceres::Homepage.Homepage', itemLoaderPresets.items, {
+      variationIds: [config("Ceres.homepage.sliderItemId1")]
+    }).documents[0].data,
+    url: config("Ceres.homepage.sliderImageUrl1")
+  } %}
+  {% set slider2 = {
+    item: services.itemLoader.loadForTemplate('Ceres::Homepage.Homepage', itemLoaderPresets.items, {
+      variationIds: [config("Ceres.homepage.sliderItemId2")]
+    }).documents[0].data,
+    url: config("Ceres.homepage.sliderImageUrl2")
+  } %}
+  {% set slider3 = {
+    item: services.itemLoader.loadForTemplate('Ceres::Homepage.Homepage', itemLoaderPresets.items, {
+      variationIds: [config("Ceres.homepage.sliderItemId3")]
+    }).documents[0].data,
+    url: config("Ceres.homepage.sliderImageUrl3")
+  } %}
+
+  {% if slider1.url | trim is empty and slider1.item.texts is not empty %}
+    {% set slider1Image = slider1.item.images | itemImages | orderByKey('position') | first %}
+    {% set slider1 = slider1 | merge({url: slider1Image.url}) %}
+  {% endif %}
+  {% if slider2.url | trim is empty and slider2.item.texts is not empty %}
+    {% set slider2Image = slider2.item.images | itemImages | orderByKey('position') | first %}
+    {% set slider2 = slider2 | merge({url: slider2Image.url}) %}
+  {% endif %}
+  {% if slider3.url | trim is empty and slider3.item.texts is not empty %}
+    {% set slider3Image = slider3.item.images | itemImages | orderByKey('position') | first %}
+    {% set slider3 = slider3 | merge({url: slider3Image.url}) %}
+  {% endif %}
+
+  {% set heroExtra1 = {
+    item: services.itemLoader.loadForTemplate('Ceres::Homepage.Homepage', itemLoaderPresets.items, {
+      variationIds: [config("Ceres.homepage.heroExtraItemId1")]
+    }).documents[0].data,
+    url: config("Ceres.homepage.heroExtraImageUrl1")
+  } %}
+  {% set heroExtra2 = {
+    item: services.itemLoader.loadForTemplate('Ceres::Homepage.Homepage', itemLoaderPresets.items, {
+      variationIds: [config("Ceres.homepage.heroExtraItemId2")]
+    }).documents[0].data,
+    url: config("Ceres.homepage.heroExtraImageUrl2")
+  } %}
+
+  {% if heroExtra1.url | trim is empty and heroExtra1.item.texts is not empty %}
+    {% set heroExtra1Image = heroExtra1.item.images | itemImages | orderByKey('position') | first %}
+    {% set heroExtra1 = heroExtra1 | merge({url: heroExtra1Image.url}) %}
+  {% endif %}
+  {% if heroExtra2.url | trim is empty and heroExtra2.item.texts is not empty %}
+    {% set heroExtra2Image = heroExtra2.item.images | itemImages | orderByKey('position') | first %}
+    {% set heroExtra2 = heroExtra2 | merge({url: heroExtra2Image.url}) %}
+  {% endif %}
+
+  {% set category1 = services.category.get(config("Ceres.homepage.homepageCategory1"), lang) %}
+  {% set category2 = services.category.get(config("Ceres.homepage.homepageCategory2"), lang) %}
+  {% set category3 = services.category.get(config("Ceres.homepage.homepageCategory3"), lang) %}
+  {% set category4 = services.category.get(config("Ceres.homepage.homepageCategory4"), lang) %}
+  {% set category5 = services.category.get(config("Ceres.homepage.homepageCategory5"), lang) %}
+  {% set category6 = services.category.get(config("Ceres.homepage.homepageCategory6"), lang) %}
+
+  {% set paginatedCategoryList1 = services.itemLoader.loadForTemplate('Ceres::ItemList.ItemListView', itemLoaderPresets.categoryList, {
+    'categoryId': category3.id,
+    'page': 1,
+    'items': 4,
+    'sorting': itemSort
+  }) %}
+
+  {% set paginatedCategoryList2 = services.itemLoader.loadForTemplate('Ceres::ItemList.ItemListView', itemLoaderPresets.categoryList, {
+    'categoryId': category6.id,
+    'page': 1,
+    'items': 4,
+    'sorting': itemSort
+  }) %}
+
+  {% set categoryList1 = paginatedCategoryList1.documents %}
+  {% set categoryList2 = paginatedCategoryList2.documents %}
+
+  {{ component( "Ceres::ItemList.Components.ItemList") }}
+  {{ component( "Ceres::ItemList.Components.CategoryImageCarousel") }}
+  {{ component( "Ceres::Basket.Components.AddToBasket" ) }}
+
+  <div class="homePage">
+    <div id="carousel-example-generic" data-ride="carousel" class="carousel slide">
+      <div role="listbox" class="carousel-inner">
+        <div class="carousel-item">
+          <a href="/kinderwagen" class="hero-category"><img src="https://cdn03.plentymarkets.com/mmx8yrv4qndt/frontend/LayoutCeres/pexels-photo-1007773.jpeg" alt="Slide 1" class="img-fluid"></a>
+          <div class="slide-caption slide-position7 design1 mobile-design2">
+            <div class="slide-text">
+              <h1>Kombikinderwagen</h1>
+              <p>Entdecken Sie unsere verschiedenen Kinderwagen</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <a href="/alles-fuer-ihr-kind" class="hero-category"><img src="https://cdn03.plentymarkets.com/mmx8yrv4qndt/frontend/LayoutCeres/pexels-photo-208153__2_.jpeg" class="img-fluid"></a>
+          <div class="slide-caption slide-position7 design1 mobile-design2">
+            <div class="slide-text">
+              <h2>Alles für Ihr Kind</h2>
+              <p>Entdecken Sie unser Sortiment, vorbeischauen lohnt sich!</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item active">
+          <a href="/babyschaukel" class="hero-category"><img src="https://cdn03.plentymarkets.com/mmx8yrv4qndt/frontend/LayoutCeres/pexels-photo-266004__1_.jpeg" class="img-fluid"></a>
+          <div class="slide-caption slide-position7 design1 mobile-design2">
+            <div class="slide-text">
+              <h2>Babyschaukeln</h2>
+              <p>Entdecken Sie unsere verschiedenen Babyschaukeln</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2" class="active"></li>
+      </ol>
+      <a href="#carousel-example-generic" role="button" data-slide="prev" class="left carousel-control">
+        <span aria-hidden="true" class="icon-prev"></span>
+        <span class="sr-only">Zurück</span></a>
+      <a href="#carousel-example-generic" role="button" data-slide="next" class="right carousel-control">
+        <span aria-hidden="true" class="icon-next"></span>
+        <span class="sr-only">Nächste</span></a>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="seotext text-center">
+          <div class="titel">
+            <img src="https://cdn03.plentymarkets.com/mmx8yrv4qndt/frontend/LayoutCeres/logo-shop-300.jpg" alt="Logo Clamaro"></img>
+            <h2 class="titel">Kinderwagen und weitere tolle Produkte unserer hauseigenen Marke Clamaro</h2>
+          </div>
+          <p>Herzlich willkommen bei M&L Handel, dein Online Shop für Kinderwagen und Babyartikel.</p>
+          <p>Alles für Ihr Kind - vom Kinderwagen, über Kinderspielzeug, Babyschaukeln und Kinderdreirädern bieten wir Ihnen verschiedene interessante Artikel zu einer top Qualität.</p>
+          <p>Die Zufriedenheit unserer Kunden liegt uns sehr am Herzen. Wir stehen Ihnen gerne zur Beratung und bei Fragen zur Verfügung.</p>
+
+          <p>Unser Ziel ist es, Ihnen preiswerte und qualitativ hochwertige Produkte rund um das Thema Kinderwagen und Erstausstattung für Ihr Kind anzubieten.</p>
+          <p>Unsere Ansprüche an Qualität und Leistung konnten bisher auch in Tests überzeugen.</p>
+          <img src="https://cdn03.plentymarkets.com/mmx8yrv4qndt/frontend/LayoutCeres/award-base64-350.jpg" alt="Clamaro Award" ></img>
+          <img src="https://cdn03.plentymarkets.com/mmx8yrv4qndt/frontend/LayoutCeres/testurteilvip3in1.jpg" alt="Clamaro VIP Sieger"></img>
+          <p>Lassen Sie sich von unserem Service und unserem umfangreichen Produktsortiment überzeugen!</p>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+  <div class="title-arch">Bestseller</p></div>
+
+  	<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project wow animated animated4 fadeInLeft">
+          <div class="project-hover">
+          	<h2>Kinderbetten</h2>
+
+              <hr />
+              <p>Unsere Kinderbetten sind in verschiedenen Motiven sowohl für Jungs als auch Mädchen erhältlich.</p>
+              <a href="/kindermoebel/kinderbetten">jetzt kaufen</a>
+          </div>
+      </div>
+  	<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-2 wow animated animated3 fadeInLeft">
+      	<div class="project-hover">
+          	<h2>Outdoor</h2>
+              <hr />
+              <p>Überzeugen Sie sich von unserem Outdoor Sortiment. Neben Fahrrädern sind auch verschiedenste Spielzeuge erhätlich.</p>
+              <a href="/Outdoor">jetzt kaufen</a>
+          </div>
+      </div>
+  	<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-3 wow animated animated2 fadeInLeft">
+      	<div class="project-hover">
+          	<h2>Kinderwagen</h2>
+              <hr />
+              <p>Wir bieten Ihnen diverse Varianten von Kinderwagen unserer hauseigenen Marke Clamaro an. Zögern Sie nicht mit uns in Kontakt zu treten, wenn Sie Fragen haben. </p>
+              <a href="/Kinderwagen">jetzt kaufen</a>
+          </div>
+      </div>
+  	<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-4 wow animated fadeInLeft">
+      	<div class="project-hover">
+          	<h2>Autokindersitze</h2>
+              <hr />
+              <p>Schöne Autokindersitze für Ihr Kind. Natürlich TÜV geprüft und von überzeugender Qualität zum kleinen Preis</p>
+              <a href="/autokindersitze">jetzt kaufen</a>
+          </div>
+      </div>
+      <div class="clearfix"></div>
+  </div>
+
+    <div id="serviceboxDIV_1">
+      <div id="serviceboxDIV_2">
+        <div id="serviceboxDIV_3"></div>
+        <h2 id="serviceboxH2_4">
+          Versand
+        </h2>
+        <h3 id="serviceboxH3_5">
+
+          Schneller Versand nach dem Kauf.
+        </h3>
+        <div id="serviceboxDIV_6"></div>
+      </div>
+      <div id="serviceboxDIV_7">
+        <div id="serviceboxDIV_8"></div>
+        <h2 id="serviceboxH2_9">
+          Service
+        </h2>
+        <h3 id="serviceboxH3_10">
+          Wir beraten Sie gerne!
+        </h3>
+        <div id="serviceboxDIV_11"></div>
+      </div>
+      <div id="serviceboxDIV_12">
+        <div id="serviceboxDIV_13"></div>
+        <h2 id="serviceboxH2_14">
+          Qualität
+        </h2>
+        <h3 id="serviceboxH3_15">
+          Top Qualität zum kleinen Preis!
+        </h3>
+        <div id="serviceboxDIV_16"></div>
+      </div>
+
+    </div>
+
+      {% set homepageContainer2 = LayoutContainer.show("Ceres::Homepage.Container2") %}
+      {% set homepageContainer3 = LayoutContainer.show("Ceres::Homepage.Container3") %}
+
+      {% set homepageContainer4 = LayoutContainer.show("Ceres::Homepage.Container4") %}
+      {% set homepageContainer5 = LayoutContainer.show("Ceres::Homepage.Container5") %}
+
+      {% set homepageContainer6 = LayoutContainer.show("Ceres::Homepage.Container6") %}
+      {% if categoryList1 is not empty or homepageContainer6 | trim is not empty %}
+        <div class="m-b-2 clearfix">
+          {% if homepageContainer6 | trim is empty %}
+            <div class="product-header">
+              <h2>
+                <span>Sale</span></h2>
+            </div>
+            <a href="{{ services.category.getURL(category3, lang) }}" class="section-link-all">
+              <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+              {{ trans("Ceres::Template.homepageShowAll") }}</a>
+          </div>
+          <ul class="product-list row grid">
+            {% for item in categoryList1 %}
+              <li class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                {% include "Ceres::Category.Item.Partials.CategoryListItem" with {
+                  'item' : item
+                } %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          {{ homepageContainer6 }}
+        {% endif %}
+
+      {% endif %}
+
+      <!-- END CATEGORIES -->
+
+      {% set homepageContainer9 = LayoutContainer.show("Ceres::Homepage.Container9") %}
+      {% if categoryList2 is not empty or homepageContainer9 | trim is not empty %}
+        <div class="m-b-2 clearfix">
+          {% if homepageContainer9 | trim is empty %}
+            <div class="product-header">
+              <h2>
+                <span>
+                  {{ category6.details[0].name }}</span></h2>
+            </div>
+            <a href="{{ services.category.getURL(category6, lang) }}" class="section-link-all">
+              <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+              {{ trans("Ceres::Template.homepageShowAll") }}</a>
+
+            <!-- crosssell start -->
+            <ul class="product-list row grid">
+              {% for item in categoryList2 %}
+                <li class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                  {% include "Ceres::Category.Item.Partials.CategoryListItem" with {
+                    'item' : item
+                  } %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            {{ homepageContainer9 }}
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+    {{ LayoutContainer.show("Ceres::Homepage.Container10") }}
+
+
+
+{% else %}
+  {{ overrideHomepageContainer | raw }}
+{% endif %}
