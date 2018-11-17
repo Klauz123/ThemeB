@@ -31,7 +31,6 @@
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <div class="top-menu">
             <ul id="controlsList" class="inline">
-              <li> <a href="/produktvorschau" title="Produktvorschau">Produktvorschau</a></li>
               <li class="hidden-xs">
                 <a href="/contact" title="Kontakt">Kontakt</a>
               </li>
@@ -65,14 +64,12 @@
       </div>
     </div>
   </div>
-
-
   <div class="section-nav sticky">
     <div class="container">
       <div class="header-bottom-wrap row">
         <div class="col-lg-2 col-md-4 col-sm-7 col-xs-12 logo-holder">
           <div class="logo">
-            <a href="/" title="M&L Handel"><img alt="Beeketal" title="Beeketal" src="https://www.beeketal.de/EbayLayout/logo.png" class="logo-img"></a>
+            <a href="/" title="M&L Handel"><img alt="M&L Handel" title="M&L Handel" src="https://www.ml-handel-shop.de/layout/ml-handel/img/company_logo.jpg" class="logo-img"></a>
           </div>
         </div>
         <div class="col-lg-10 col-md-8 col-sm-5 col-xs-12 center-xs">
@@ -118,7 +115,15 @@
                   <i aria-hidden="true" v-open-mobile-navigation class="fa fa-bars"></i>
                 </li>
               </ul>
+              <div id="mainNavbarCollapsable">
+                <ul class="breadcrumb">
+                  <li class="btnClose"></li>
+              </ul>
 
+                <ul class="mainmenu">
+                  {{ Tree.get_nav_bar(categories, "") }}
+                </ul>
+              </div>
             </nav>
           </div>
         </div>
