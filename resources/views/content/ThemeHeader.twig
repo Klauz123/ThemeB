@@ -1,8 +1,6 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 {% import "Ceres::Category.Macros.CategoryTree" as Tree %}
 
-
-
 {{ component( "Ceres::Customer.Components.UserLoginHandler" ) }}
 {{ component( "Ceres::PageDesign.Components.ShippingCountrySelect" ) }}
 {{ component( "Ceres::PageDesign.Components.MobileNavigation" ) }}
@@ -25,9 +23,11 @@
     <div class="container">
       <div class="row top-row">
         <div class="col-lg-8 col-md-8">
-<li class="hidden-xs top-menu"><a href="/information/versandkosten/" title="Versand">Kostenloser Versand innerhalb Deutschlands</a>
-<i aria-hidden="true" class="fa fa-truck"></i></li>
-</div>
+          <li class="hidden-xs top-menu">
+            <a href="/information/versandkosten/" title="Versand">Kostenloser Versand innerhalb Deutschlands</a>
+            <i aria-hidden="true" class="fa fa-truck"></i>
+          </li>
+        </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <div class="top-menu">
             <ul id="controlsList" class="inline">
@@ -35,166 +35,118 @@
                 <a href="/contact" title="Kontakt">Kontakt</a>
               </li>
               <li class="list-inline-item control-user">
-                <user-login-handler template="#vue-user-login-handler"
-                                                  :user-data="{{ services.customer.getContact() | json_encode() }}"></user-login-handler>
+                <user-login-handler template="#vue-user-login-handler" :user-data="{{ services.customer.getContact() | json_encode() }}"></user-login-handler>
               </li>
               <li class="list-inline-item dropdown control-languages">
-                             <a class="" data-toggle="collapse" href="#countrySettings" aria-expanded="false"
-                                aria-controls="countrySettings"
-                                data-parent="#controlsList">
-                                 <i class="flag-icon flag-icon-{{ lang }}"></i>
-                             </a>
-                         </li>
+                <a class="" data-toggle="collapse" href="#countrySettings" aria-expanded="false" aria-controls="countrySettings" data-parent="#controlsList">
+                  <i class="flag-icon flag-icon-{{ lang }}"></i>
+                </a>
+              </li>
 
-                         {% if enableCurrencySelect == "true" %}
-                             <li class="list-inline-item dropdown control-languages">
-                                 <a class=""
-                                    data-toggle="collapse"
-                                    href="#currencySelect"
-                                    aria-expanded="false"
-                                    aria-controls="currencySelect"
-                                    data-parent="#controlsList">
-                                     <span>{{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
-                                 </a>
-                             </li>
-                         {% endif %}
+              {% if enableCurrencySelect == "true" %}
+                <li class="list-inline-item dropdown control-languages">
+                  <a class="" data-toggle="collapse" href="#currencySelect" aria-expanded="false" aria-controls="currencySelect" data-parent="#controlsList">
+                    <span>{{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+                  </a>
+                </li>
+              {% endif %}
             </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="section-nav sticky">
+  <div class="top-bar">
     <div class="container">
-      <div class="header-bottom-wrap row">
+      <div class="row">
         <div class="col-lg-2 col-md-4 col-sm-7 col-xs-12 logo-holder">
           <div class="logo">
             <a href="/" title="M&L Handel"><img alt="M&L Handel" title="M&L Handel" src="https://www.ml-handel-shop.de/layout/ml-handel/img/company_logo.jpg" class="logo-img"></a>
           </div>
         </div>
-        <div class="col-lg-10 col-md-8 col-sm-5 col-xs-12 center-xs">
-          <div class="row">
-            <nav class="mainNavigation navbar megamenu">
-              <ul id="wrap" class="service-wrap">
-                <li class="wish-list-menu">
-                  {% if "wish-list" in enabledRoutes or "all" in enabledRoutes %}
-
-                                 <wish-list-count :init-ids="{{ services.wishList.getItemWishList() | json_encode }}"></wish-list-count>
-
-                         {% endif %}
-                </li>
-                <li class="search icon-search">
-                 <i class="fa fa-search"></i>
-               </li>
-                <li class="basket">
-                             <a v-toggle-basket-preview href="#" class="toggle-basket-preview">
-                                 {% if config("Ceres.header.basket_values") != "sum" %}
-                                     <span class="badge-right" v-basket-item-quantity="this.$store.state.basket.data.itemQuantity">0</span>
-                                 {% endif %}
-
-                                 <i v-waiting-animation="this.$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                 {% if config("Ceres.header.basket_values") != "quantity" %}
-                                     {% if services.customer.showNetPrices() %}
-                                     {% else %}
-                                     {% endif %}
-                                 {% endif %}
-                             </a>
-
-                             {% if config("Ceres.basket.preview_type") != "right" %}
-                                 <basket-preview
-                                         template="#vue-basket-preview-hover"
-                                         :basket-data="{{ services.basket.getBasketForTemplate() | json_encode() }}">
-                                 </basket-preview>
-                             {% endif %}
-                         </li>
-                <button id="btnMainMenuToggler" v-open-mobile-navigation class="navbar-toggler hidden-lg-up" type="button">
-
-                 </button>
-
-                <li id="btnMainMenuToggler" class="hidden-lg-up">
-                  <i aria-hidden="true" v-open-mobile-navigation class="fa fa-bars"></i>
-                </li>
-              </ul>
-              <div id="mainNavbarCollapsable">
-                <ul class="breadcrumb">
-                  <li class="btnClose"></li>
-              </ul>
-
-                <ul class="mainmenu">
-                  {{ Tree.get_nav_bar(categories, "") }}
-                </ul>
+        <div class="col-md-5 search-top hidden-sm-down m-t-1">
+          <ul>
+            <li id="searchBox2" class="cmp cmp-search-box  hidden-sm-down">
+              <div class="search-box-inner">
+                <div class="search-box-shadow-frame"><item-search template="#vue-item-search"></item-search>
+                  <button type="submit" class="search-submit">
+                    <i class="fa fa-search sm-up"></i>
+                  </button>
+                </div>
               </div>
-            </nav>
-          </div>
+            </li>
+          </ul>
         </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-
-{% if category.linklist == "Y" %}
-    {% set initialCategory = { id: category.id } %}
-{% else %}
-    {% set initialCategory = category %}
-{% endif %}
-
-<mobile-navigation :navigation-tree-data="{{ categories | json_encode }}" :initial-category="{{ initialCategory | json_encode }}" template="#vue-mobile-navigation"></mobile-navigation>
-
-
-
-<div class="search-control">
-  <div class="inner">
-    <i class="fa fa-close close-search-control"></i>
-    <div class="box-search">
-      <p class="title">Suchbegriff eingeben</p>
-      <div id="searchBox" class="box-search-inner">
-        <div class="search-box-inner">
-          <div class="search-box-shadow-frame"><item-search template="#vue-item-search"></item-search>
-
-            </button>
-          </div>
-        </div>
+        <div class="row"></div>
       </div>
     </div>
   </div>
 </div>
+</header>
+
+{% if category.linklist == "Y" %}
+{% set initialCategory = {
+  id: category.id
+} %}
+{% else %}
+{% set initialCategory = category %}
+{% endif %}
+
+<mobile-navigation :navigation-tree-data="{{ categories | json_encode }}" :initial-category="{{ initialCategory | json_encode }}" template="#vue-mobile-navigation"></mobile-navigation>
+
+<div class="search-control">
+<div class="inner">
+  <i class="fa fa-close close-search-control"></i>
+  <div class="box-search">
+    <p class="title">Suchbegriff eingeben</p>
+    <div id="searchBox" class="box-search-inner">
+      <div class="search-box-inner">
+        <div class="search-box-shadow-frame">
+          <item-search template="#vue-item-search"></item-search>
+
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 <shop-country-settings country-flag-prefix="flag-icon-" :localization-data="{{ services.localization.getLocalizationData() | json_encode }}">
-           <div id="countrySettings" class="row cmp cmp-country-settings no-margin collapse">
-               <div class="container-max">
-                   <div class="row no-padding">
-                       <div class="country-settings-inner languages col-lg-6">
+<div id="countrySettings" class="row cmp cmp-country-settings no-margin collapse">
+<div class="container-max">
+  <div class="row no-padding">
+    <div class="country-settings-inner languages col-lg-6">
 
-                           <div class="language-settings">
-                               <div class="list-title">
-                                   <strong>{{ trans("Ceres::Template.headerSelectLanguage") }}</strong>
-                                   <hr>
-                               </div>
+      <div class="language-settings">
+        <div class="list-title">
+          <strong>{{ trans("Ceres::Template.headerSelectLanguage") }}</strong>
+          <hr>
+        </div>
 
-                               {% set languageList = services.webstoreConfig.getActiveLanguageList() %}
-                               {% set languageUrls = services.url.getLanguageURLs() %}
-                               <ul>
-                                   {% for language in languageList %}
-                                       <li{% if lang == language %} class="active"{% endif %}>
-                                           <a href="{% if languageUrls[language] is defined %}{{ languageUrls[language] ~ queryString() }}{% else %}/{{ language }}{{ urls.trailingSlashSuffix }}{% endif %}" data-update-url>
-                                               <i class="flag-icon flag-icon-{{ language }}"></i>
-                                               {{ trans("Ceres::Template.header" ~ language | capitalize) }}
-                                           </a>
-                                       </li>
-                                   {% endfor %}
-                               </ul>
-                           </div>
-                       </div>
-                       <div class="country-settings-inner countries col-lg-6">
-                           <div class="shipping-settings">
-                               <div class="list-title">
-                                   <strong>{{ trans("Ceres::Template.headerSelectShippingCountry") }}</strong>
-                                   <hr>
-                               </div>
-                               <shipping-country-select :disable-input="{{ services.template.isCheckout() | json_encode() }}"></shipping-country-select>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </shop-country-settings>
+        {% set languageList = services.webstoreConfig.getActiveLanguageList() %}
+        {% set languageUrls = services.url.getLanguageURLs() %}
+        <ul>
+          {% for language in languageList %}
+            <li{% if lang == language %} class="active" {% endif %}>
+              <a href="{% if languageUrls[language] is defined %}{{ languageUrls[language] ~ queryString() }}{% else %}/{{ language }}{{ urls.trailingSlashSuffix }}{% endif %}" data-update-url="data-update-url">
+                <i class="flag-icon flag-icon-{{ language }}"></i>
+                {{ trans("Ceres::Template.header" ~ language | capitalize) }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="country-settings-inner countries col-lg-6">
+      <div class="shipping-settings">
+        <div class="list-title">
+          <strong>{{ trans("Ceres::Template.headerSelectShippingCountry") }}</strong>
+          <hr>
+        </div>
+        <shipping-country-select :disable-input="{{ services.template.isCheckout() | json_encode() }}"></shipping-country-select>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</shop-country-settings>
