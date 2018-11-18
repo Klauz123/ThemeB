@@ -16,73 +16,152 @@
 {% set currencyFormatSelect = config("Ceres.currency.format_selection") %}
 {% set lang = services.sessionStorage.getLang() %}
 
-<header class="header-absolute">
-  {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
+<header id="header-wrap">
 
-  <div class="section-head">
-    <div class="container">
-      <div class="row top-row">
-        <div class="col-lg-8 col-md-8">
-          <li class="hidden-xs top-menu">
-            <a href="/information/versandkosten/" title="Versand">Kostenloser Versand innerhalb Deutschlands</a>
-            <i aria-hidden="true" class="fa fa-truck"></i>
-          </li>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <div class="top-menu">
-            <ul id="controlsList" class="inline">
-              <li class="hidden-xs">
-                <a href="/contact" title="Kontakt">Kontakt</a>
-              </li>
-              <li class="list-inline-item control-user">
-                <user-login-handler template="#vue-user-login-handler" :user-data="{{ services.customer.getContact() | json_encode() }}"></user-login-handler>
-              </li>
-              <li class="list-inline-item dropdown control-languages">
-                <a class="" data-toggle="collapse" href="#countrySettings" aria-expanded="false" aria-controls="countrySettings" data-parent="#controlsList">
-                  <i class="flag-icon flag-icon-{{ lang }}"></i>
-                </a>
-              </li>
-
-              {% if enableCurrencySelect == "true" %}
-                <li class="list-inline-item dropdown control-languages">
-                  <a class="" data-toggle="collapse" href="#currencySelect" aria-expanded="false" aria-controls="currencySelect" data-parent="#controlsList">
-                    <span>{{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
-                  </a>
-                </li>
-              {% endif %}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="top-bar">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-2 col-md-4 col-sm-7 col-xs-12 logo-holder">
-          <div class="logo">
-            <a href="/" title="M&L Handel"><img alt="M&L Handel" title="M&L Handel" src="https://www.ml-handel-shop.de/layout/ml-handel/img/company_logo.jpg" class="logo-img"></a>
-          </div>
-        </div>
-        <div class="col-md-5 search-top hidden-sm-down m-t-1">
-          <ul>
-            <li id="searchBox2" class="cmp cmp-search-box  hidden-sm-down">
-              <div class="search-box-inner">
-                <div class="search-box-shadow-frame"><item-search template="#vue-item-search"></item-search>
-                  <button type="submit" class="search-submit">
-                    <i class="fa fa-search sm-up"></i>
-                  </button>
-                </div>
+    	<!-- Roof area starts -->
+      <div id="roof" class="hidden-xs">
+        <div class="container">
+          <div class="row">
+            <div class="roof-content">
+              <div class="roof-middle">
+                <!-- Social Icons -->
+                  <div class="pull-left roof-social-icons">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-rss"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                  </div>
+                  <!-- Menu -->
+                  <div class="pull-left roof-social-icons">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-github"></i></a>
+                  </div>
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
-        <div class="row"></div>
       </div>
-    </div>
-  </div>
-</div>
-</header>
+      <!-- Roof area Ends -->
+
+      <!-- Header area starts -->
+      <section id="header">
+
+        <!-- Navbar Starts -->
+        <nav class="navbar navbar-light" data-spy="affix" data-offset-top="50">
+          <div class="container">
+            <button class='navbar-toggler hidden-md-up pull-xs-right' data-target='#main-menu' data-toggle='collapse' type='button'>
+              ☰
+            </button>
+            <!-- Brand -->
+            <a class="navbar-brand" href="index.html">
+              <img src="assets/img/logo.png" alt="">
+            </a>
+            <div class="collapse navbar-toggleable-sm pull-xs-left pull-md-right" id="main-menu">
+              <!-- Navbar Starts -->
+              <ul class="nav nav-inline">
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="index.html" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Pages
+                  </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="about-us.html">About Us</a>
+                    <a class="dropdown-item" href="about-us2.html">About Us 2</a>
+                    <a class="dropdown-item" href="team-page.html">Team Members</a>
+                    <a class="dropdown-item" href="services.html">Services</a>
+                    <a class="dropdown-item" href="service2.html">Services 2</a>
+                    <a class="dropdown-item" href="contact1.html">Contact Us</a>
+                    <a class="dropdown-item" href="contact1.html">Contact Us 2</a>
+                    <a class="dropdown-item" href="pricing.html">Pricing</a>
+                    <a class="dropdown-item" href="404.html">404</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Shortcodes
+                  </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="accordions.html">Accordions</a>
+                    <a class="dropdown-item" href="tabs.html">Tabs</a>
+                    <a class="dropdown-item" href="buttons.html">Buttons</a>
+                    <a class="dropdown-item" href="skills.html">Progress Bars</a>
+                    <a class="dropdown-item" href="testimonials.html">Testimonials</a>
+                    <a class="dropdown-item" href="clients.html">Clients</a>
+                    <a class="dropdown-item" href="icon.html">Icon Boxes</a>
+                    <a class="dropdown-item" href="team.html">Team</a>
+                    <a class="dropdown-item" href="carousel.html">Carousel</a>
+                    <a class="dropdown-item" href="maps.html">Google Maps</a>
+                    <a class="dropdown-item" href="pricing.html">Pricing tables</a>
+                    <a class="dropdown-item" href="notification.html">Notification</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Portfolio
+                  </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="portfolio-col-2.html">Portfolio 2 Columns</a>
+                    <a class="dropdown-item" href="portfolio-col-3.html">Portfolio 3 Columns</a>
+                    <a class="dropdown-item" href="portfolio-col-4.html">Portfolio 4 Columns</a>
+                    <a class="dropdown-item" href="portfolio-item.html">Portfolio Single</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Blog
+                  </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="sidebar-right.html">Sidebar Right</a>
+                    <a class="dropdown-item" href="sidebar-left.html">Sidebar Left</a>
+                    <a class="dropdown-item" href="sidebar-full.html">Full Width</a>
+                    <a class="dropdown-item" href="blog-single.html">Single Post</a>
+                    <a class="dropdown-item" href="blog-grids.html">Blog Grids</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Contact Us
+                  </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="contact1.html">Contact us 1</a>
+                    <a class="dropdown-item" href="contact2.html">Contact us 2</a>
+                  </div>
+                </li>
+                <!-- Search in right of nav -->
+                <li class="nav-item" class="search">
+                  <form class="top_search clearfix">
+                    <div class="top_search_con">
+                      <input class="s" placeholder="Search Here ..." type="text">
+                      <span class="top_search_icon"><i class="icon-magnifier"></i></span>
+                      <input class="top_search_submit" type="submit">
+                    </div>
+                  </form>
+                </li>
+                <!-- Search Ends -->
+              </ul>
+            </div>
+              <!-- Form for navbar search area -->
+              <form class="full-search">
+                <div class="container">
+                  <input type="text" placeholder="Type to Search">
+                  <a href="#" class="close-search">
+                    <span class="fa fa-times fa-2x">
+                    </span>
+                  </a>
+                </div>
+              </form>
+              <!-- Search form ends -->
+          </div>
+        </nav>
+        <!-- Navbar Ends -->
+      </section>
+    </header>
 
 {% if category.linklist == "Y" %}
 {% set initialCategory = {
