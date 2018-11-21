@@ -1,4 +1,11 @@
+nav .logo {
+  float: left;
+}
 
+nav .logo img{
+  height: 80px;
+  transition .5s;
+}
 
 .navbar-nav>li>.dropdown-menu {
   margin-top: 20px;
