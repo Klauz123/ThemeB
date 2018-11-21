@@ -30,7 +30,7 @@ nav ul li a {
 }
 nav ul li a.active,
 nav ul li a:hover{
-  color: #fff;
+  color:#ffffff;
   background: #962d22;
 }
 
@@ -52,7 +52,7 @@ nav ul li a:hover{
 
 .mega-dropdown-menu {
   padding: 20px 0px;
-  width: 50%;
+  width: 80%;
   box-shadow: none;
   -webkit-box-shadow: none;
 }
