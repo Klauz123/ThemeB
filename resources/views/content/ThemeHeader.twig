@@ -18,6 +18,7 @@
 {% set currencyFormatSelect = config("Ceres.currency.format_selection") %}
 {% set lang = services.sessionStorage.getLang() %}
 
+<header>
 <nav>
     <div class="logo"> <img src="https://www.beeketal.de/EbayLayout/logo.png"></div>
     <ul>
@@ -33,32 +34,14 @@
       <li><a href="#">Grill</a></li>
     </ul>
 </nav>
-{% if category.linklist == "Y" %}
-    {% set initialCategory = { id: category.id } %}
-{% else %}
-    {% set initialCategory = category %}
-{% endif %}
-
-<mobile-navigation :navigation-tree-data="{{ categories | json_encode }}" :initial-category="{{ initialCategory | json_encode }}" template="#vue-mobile-navigation"></mobile-navigation>
 
 
 
-<div class="search-control">
-  <div class="inner">
-    <i class="fa fa-close close-search-control"></i>
-    <div class="box-search">
-      <p class="title">Suchbegriff eingeben</p>
-      <div id="searchBox" class="box-search-inner">
-        <div class="search-box-inner">
-          <div class="search-box-shadow-frame"><item-search template="#vue-item-search"></item-search>
+</header>
 
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+
+
 <shop-country-settings country-flag-prefix="flag-icon-" :localization-data="{{ services.localization.getLocalizationData() | json_encode }}">
            <div id="countrySettings" class="row cmp cmp-country-settings no-margin collapse">
                <div class="container-max">
