@@ -9,11 +9,11 @@ header{
   padding-right: 15px;
 
 }
-.header-container .logo {
+nav .logo {
   float: left;
 }
 
-.header-container .logo img{
+nav .logo img{
   height: 130px;
   transition .5s;
 }
@@ -27,7 +27,6 @@ nav
   padding: 10px 100px;
   box-sizing: border-box;
   transition: .5s;
-  background-color: #e6e6e6,
 }
 nav ul li a {
   line-height: 130px;
@@ -132,38 +131,4 @@ nav ul li a:hover{
 }
 .dropdown-menu{
   top: auto;
-}
-#wrap {
-  display: inline-block;
-  float: right;
-  position: relative;
-  padding: 0;
-  width: 100%;
-  margin: 0
-}
-
-.service-wrap li {
-  display: block;
-  width: 25%;
-  float: left;
-  text-align: center;
-  padding: 15px 0;
-  border-right: 1px solid #ddd;
-  background: #444;
-  height: 58px;
-  cursor: pointer
-}
-
-.service-wrap i {
-  font-size: 25px;
-  color: #fff;
-  margin-left: 14px
-}
-
-.wish-list-menu {
-  position: relative
-}
-
-.wish-list-menu a {
-  position: relative
 }
