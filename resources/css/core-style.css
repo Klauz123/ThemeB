@@ -37,7 +37,7 @@
 :: 24.0 Compare Area CSS
 :: 25.0 404 Area CSS
 :: 26.0 Maintenence Mood Area CSS
-:: 27.0 Coming Soon Area CSS 
+:: 27.0 Coming Soon Area CSS
 :: 28.0 Contact Area CSS
 :: 29.0 FAQ Area CSS
 :: 30.0 About Us Area CSS
@@ -57,14 +57,14 @@
 :: 2.0 Import All CSS
 ------------------ */
 
-@import '../css/bootstrap.min.css';
-@import '../css/owl.carousel.css';
-@import '../css/font-awesome.min.css';
-@import '../css/themify-icons.css';
-@import '../css/magnific-popup.css';
-@import '../css/animate.css';
-@import '../css/navigation.css';
-@import '../css/jquery-ui.min.css';
+@import 'https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/bootstrap.min.css';
+@import 'https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/owl.carousel.css';
+@import 'https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/font-awesome.min.css';
+@import 'https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/themify-icons.css';
+@import 'https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/magnific-popup.css';
+@import 'https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/animate.css';
+@import 'https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/navigation.css';
+@import 'https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/jquery-ui.min.css';
 
 /* -------------------
 :: 3.0 Common/Base CSS
@@ -3943,7 +3943,7 @@ img {
 }
 
 /* --------------------------
-:: 27.0 Coming Soon Area CSS 
+:: 27.0 Coming Soon Area CSS
 -------------------------- */
 
 .comingsoon_area .coming_soon_timer li {
