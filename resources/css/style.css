@@ -4137,3 +4137,85 @@
         width: auto;
         display: inline-block;
     }
+    /* ------------------------------
+    :: 13.0 Special Feature Area CSS
+    ------------------------------ */
+
+    .special_feature_area {
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    }
+
+    .single_feature_area {
+        position: relative;
+        z-index: 1;
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 25%;
+                flex: 0 0 25%;
+        max-width: 25%;
+        background-color: #222;
+        padding: 50px 15px;
+        -ms-flex-item-align: stretch;
+            align-self: stretch;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        -webkit-transition-duration: 500ms;
+                transition-duration: 500ms;
+    }
+
+    .single_feature_area:hover {
+        background-color: #19B5FE;
+    }
+
+    .feature_icon {
+        background-color: #f6f6f6;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        height: 70px;
+        text-align: center;
+        width: 70px;
+        position: relative;
+        z-index: 2;
+        margin-right: 15px;
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 70px;
+                flex: 0 0 70px;
+    }
+
+    .feature_icon i {
+        font-size: 36px;
+        line-height: 70px;
+    }
+
+    .feature_icon > span i {
+        background-color: #19B5FE;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 24px;
+    }
+
+    .feature_content > h6 {
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    .feature_content > p {
+        font-size: 12px;
+        margin: 0;
+        color: #fff;
+        text-transform: uppercase;
+    }
+    .footer_container{
+      max-width: 1140px;
+      width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+margin-right: auto;
+margin-left: auto;
+    }
