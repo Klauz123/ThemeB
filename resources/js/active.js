@@ -2,7 +2,7 @@
     'use strict';
 
     var $window = $(window);
-    
+
     // Fullscreen Active Code
     $window.on('resizeEnd', function () {
         $(".full_height").height($window.height());
@@ -89,7 +89,7 @@
                 }
             }
         });
-        
+
         // Featured Product Slider Active Code
         $(".featured_product_slides").owlCarousel({
             items: 2,
@@ -111,7 +111,7 @@
                 }
             }
         });
-        
+
         // Popular Items Active Code
         $(".popular_items_slides").owlCarousel({
             items: 4,
@@ -135,7 +135,7 @@
                 }
             }
         });
-        
+
         // Popular Brands Slider Active Code
         $(".popular_brands_slide").owlCarousel({
             items: 6,
