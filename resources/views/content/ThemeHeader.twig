@@ -40,7 +40,6 @@
                             <div class="login_area">
                                 <p><user-login-handler template="#vue-user-login-handler"
                                                   :user-data="{{ services.customer.getContact() | json_encode() }}"></user-login-handler>
-                                    <a href="#registration" target="_blank"><i class="fa fa-user" aria-hidden="true"></i>Registrieren</a></p>
                             </div>
                             <!-- Get Support -->
                             <div class="get_help">
@@ -93,7 +92,8 @@
                         <div class="col-12 col-md-6">
                             <div class="hero_search_area">
                                 <form action="#" method="get">
-                                    <item-search template="#vue-item-search"></item-search>
+                                  <input type="search" class="form-control" id="search" aria-describedby="search" placeholder="Suche nach Produkten">
+                                  <button type="submit" class="btn"><i class="ti-search"></i></button>
                                 </form>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
                             <div class="nav-toggle"></div>
                         </div>
                         <!-- Nav Text Area Start -->
-                        <span class="nav-text align-to-right"><i class="ti-headphone-alt"></i> +008 111 22472 44</span>
+                        <span class="nav-text align-to-right"><i class="ti-headphone-alt"></i> +49 5956 98926-0</span>
                         <!-- Main Menus Wrapper -->
                         <div class="nav-menus-wrapper">
                             <ul class="nav-menu">
