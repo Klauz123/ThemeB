@@ -57,14 +57,14 @@
 :: 2.0 Import All CSS
 ------------------ */
 
-@import 'https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/bootstrap.min.css';
-@import 'https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/owl.carousel.css';
-@import 'https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/font-awesome.min.css';
-@import 'https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/themify-icons.css';
-@import 'https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/magnific-popup.css';
-@import 'https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/animate.css';
-@import 'https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/navigation.css';
-@import 'https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/jquery-ui.min.css';
+@import url('https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/bootstrap.min.css');
+@import url('https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/owl.carousel.css');
+@import url('https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/font-awesome.min.css');
+@import url('https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/themify-icons.css');
+@import url('https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/magnific-popup.css');
+@import url('https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/animate.css');
+@import url('https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/navigation.css');
+@import url('https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/css/jquery-ui.min.css');
 
 /* -------------------
 :: 3.0 Common/Base CSS
