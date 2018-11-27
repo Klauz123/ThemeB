@@ -18,95 +18,76 @@
 {% set currencyFormatSelect = config("Ceres.currency.format_selection") %}
 {% set lang = services.sessionStorage.getLang() %}
 
-<!-- ***** Header Area Start ***** -->
-    <header class="header_area">
-        <!-- Top Header Area Start -->
-        <div class="top_header_area">
-            <div class="container h-100">
-                <div class="row d-md-flex h-100 align-items-center">
-                    <div class="col-12 col-md-6">
-                        <div class="top_single_area d-sm-flex align-items-center">
-                            <!-- Top Mail Area Start -->
-                            <div class="top_mail mr-5">
-                                <a class="align-middle" href="mailto:info@beeketal.de"><i class="fa fa-envelope-o" aria-hidden="true"></i>info@beeketal.de</a>
-                            </div>
-                            <!-- Top Social Area Start -->
+<header class="header-absolute">
+  {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
 
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="top_single_area d-sm-flex align-items-center justify-content-end">
-                            <!-- Login Area Start -->
-                            <div class="login_area">
-                                <p><user-login-handler template="#vue-user-login-handler"
+  <div class="section-head">
+    <div class="container">
+      <div class="row top-row">
+        <div class="col-lg-8 col-md-8">
+<li class="hidden-xs top-menu"><a href="/information/versandkosten/" title="Versand">Kostenloser Versand innerhalb Deutschlands</a>
+<i aria-hidden="true" class="fa fa-truck"></i></li>
+</div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div class="top-menu">
+            <ul id="controlsList" class="inline">
+              <li class="hidden-xs">
+                <a href="/contact" title="Kontakt">Kontakt</a>
+              </li>
+              <li class="list-inline-item control-user">
+                <user-login-handler template="#vue-user-login-handler"
                                                   :user-data="{{ services.customer.getContact() | json_encode() }}"></user-login-handler>
-                            </div>
-                            <!-- Get Support -->
-                            <div class="get_help">
-                                <a href="faq.html" target="_blank"><i class="fa fa-life-ring" aria-hidden="true"></i>FAQ</a>
-                            </div>
-                            <!-- Language Area Start -->
-                            <div class="language_area">
-                                <div class="dropdown">
-                                  <a class="" data-toggle="collapse" href="#countrySettings" aria-expanded="false"
-                             aria-controls="countrySettings"
-                             data-parent="#controlsList">
-                              <i class="flag-icon flag-icon-{{ lang }}"></i>
-                          </a>
-                      </li>
+              </li>
+              <li class="list-inline-item dropdown control-languages">
+                             <a class="" data-toggle="collapse" href="#countrySettings" aria-expanded="false"
+                                aria-controls="countrySettings"
+                                data-parent="#controlsList">
+                                 <i class="flag-icon flag-icon-{{ lang }}"></i>
+                             </a>
+                         </li>
 
-                      {% if enableCurrencySelect == "true" %}
-                          <li class="list-inline-item dropdown control-languages">
-                              <a class=""
-                                 data-toggle="collapse"
-                                 href="#currencySelect"
-                                 aria-expanded="false"
-                                 aria-controls="currencySelect"
-                                 data-parent="#controlsList">
-                                  <span>{{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
-                              </a>
-                          </li>
-                      {% endif %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                         {% if enableCurrencySelect == "true" %}
+                             <li class="list-inline-item dropdown control-languages">
+                                 <a class=""
+                                    data-toggle="collapse"
+                                    href="#currencySelect"
+                                    aria-expanded="false"
+                                    aria-controls="currencySelect"
+                                    data-parent="#controlsList">
+                                     <span>{{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+                                 </a>
+                             </li>
+                         {% endif %}
+            </ul>
+          </div>
         </div>
-        <!-- Top Header Area End -->
+      </div>
+    </div>
+  </div>
+  <div class="section-nav sticky">
+    <div class="container">
+      <div class="header-bottom-wrap row">
+        <div class="col-lg-2 col-md-4 col-sm-7 col-xs-12 logo-holder">
+          <div class="logo">
+            <a href="/" title="M&L Handel"><img alt="M&L Handel" title="M&L Handel" src="https://www.ml-handel-shop.de/layout/ml-handel/img/company_logo.jpg" class="logo-img"></a>
+          </div>
+        </div>
+        <div class="col-lg-10 col-md-8 col-sm-5 col-xs-12 center-xs">
+          <div class="row">
+            <nav class="mainNavigation navbar megamenu">
+              <ul id="wrap" class="service-wrap">
+                <li class="wish-list-menu">
+                  {% if "wish-list" in enabledRoutes or "all" in enabledRoutes %}
 
-        <!-- Bottom Header Area Start -->
-        <div class="bottom-header-area" id="stickyHeader">
-            <div class="main_header_area">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <!-- Logo Area Start -->
-                        <div class="col-6 col-md-3">
-                            <div class="logo_area">
-                                <a href="/"><img src="https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/fonts/logo2018header2.png" alt="logo"></a>
-                            </div>
-                        </div>
-                        <!-- Search Area Start -->
-                        <div class="col-12 col-md-6">
-                            <div class="hero_search_area">
-                                <form action="#" method="get">
-                                  <input type="search" class="form-control" id="search" aria-describedby="search" placeholder="Suche nach Produkten">
-                                  <button type="submit" class="btn"><i class="ti-search"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- Hero Meta Area Start -->
-                        <div class="col-6 col-md-3">
-                            <div class="hero_meta_area d-flex text-right align-items-center justify-content-end">
-                                <!-- Wishlist Area -->
-                                <div class="wishlist">
-                                    <a href="/wish-list"><i class="ti-heart"></i></a>
-                                </div>
-                                <!-- Cart Area -->
-                                <div class="cart">
-                                  <a v-toggle-basket-preview href="#" class="toggle-basket-preview ti-bag">
+                                 <wish-list-count :init-ids="{{ services.wishList.getItemWishList() | json_encode }}"></wish-list-count>
+
+                         {% endif %}
+                </li>
+                <li class="search icon-search">
+                 <i class="fa fa-search"></i>
+               </li>
+                <li class="basket">
+                             <a v-toggle-basket-preview href="#" class="toggle-basket-preview">
                                  {% if config("Ceres.header.basket_values") != "sum" %}
                                      <span class="badge-right" v-basket-item-quantity="this.$store.state.basket.data.itemQuantity">0</span>
                                  {% endif %}
@@ -125,267 +106,59 @@
                                          :basket-data="{{ services.basket.getBasketForTemplate() | json_encode() }}">
                                  </basket-preview>
                              {% endif %}
-                                    <!-- Cart List Area Start -->
+                         </li>
+                <button id="btnMainMenuToggler" v-open-mobile-navigation class="navbar-toggler hidden-lg-up" type="button">
 
-                                </div>
-                                <!-- User Area -->
+                 </button>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <li id="btnMainMenuToggler" class="hidden-lg-up">
+                  <i aria-hidden="true" v-open-mobile-navigation class="fa fa-bars"></i>
+                </li>
+              </ul>
+              <div id="mainNavbarCollapsable">
+                <ul class="breadcrumb">
+                  <li class="btnClose"></li>
+              </ul>
 
-            <div class="mainmenu_area">
-                <div class="container">
-                    <nav id="bigshop-nav" class="navigation">
-                        <!-- Logo Area Start -->
-                        <div class="nav-header">
-                            <div class="nav-toggle"></div>
-                        </div>
-                        <!-- Nav Text Area Start -->
-                        <span class="nav-text align-to-right"><i class="ti-headphone-alt"></i> +49 5956 98926-0</span>
-                        <!-- Main Menus Wrapper -->
-                        <div class="nav-menus-wrapper">
-                            <ul class="nav-menu">
-                                <li><a href="#">Home</a>
-                                    <ul class="nav-dropdown">
-                                        <li><a href="index.html" target="_blank">Home - 1</a></li>
-                                        <li><a href="index-3.html" target="_blank">Home - 2</a></li>
-                                        <li><a href="index-2.html" target="_blank">Home - 3</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Produkte</a>
-                                    <ul class="nav-dropdown">
-                                        <li><a href="#">Shop Grid</a>
-                                            <ul class="nav-dropdown">
-                                                <li><a href="shop-grid-left-sidebar.html" target="_blank">Grid Left Sidebar</a></li>
-                                                <li><a href="shop-grid-right-sidebar.html" target="_blank">Grid Right Sidebar</a></li>
-                                                <li><a href="shop-grid-top-sidebar.html" target="_blank">Grid Top Sidebar</a></li>
-                                                <li><a href="shop-grid-no-sidebar.html" target="_blank">Grid No Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Produktvorschau</a>
-                                            <ul class="nav-dropdown">
-                                                <li><a href="shop-list-left-sidebar.html" target="_blank">List Left Sidebar</a></li>
-                                                <li><a href="shop-list-right-sidebar.html" target="_blank">List Right Sidebar</a></li>
-                                                <li><a href="shop-list-top-sidebar.html" target="_blank">List Top Sidebar</a></li>
-                                                <li><a href="shop-list-no-sidebar.html" target="_blank">List No Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="product-details.html" target="_blank">Single Product</a></li>
-                                        <li><a href="cart.html" target="_blank">Cart</a></li>
-                                        <li><a href="#">Checkout</a>
-                                            <ul class="nav-dropdown">
-                                                <li><a href="checkout-1.html" target="_blank">Checkout Login</a></li>
-                                                <li><a href="checkout-2.html" target="_blank">Checkout Billing</a></li>
-                                                <li><a href="checkout-3.html" target="_blank">Checkout Shipping</a></li>
-                                                <li><a href="checkout-4.html" target="_blank">Checkout Payment</a></li>
-                                                <li><a href="checkout-5.html" target="_blank">Checkout Review</a></li>
-                                                <li><a href="checkout-complate.html" target="_blank">Checkout Complate</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="wishlist.html" target="_blank">Wishlist</a></li>
-                                        <li><a href="compare.html" target="_blank">Compare</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Megamenu</a>
-                                    <div class="megamenu-panel">
-                                        <div class="megamenu-tabs">
-                                            <ul class="megamenu-tabs-nav">
-                                                <li class="active"><a href="#">Women’s Clothing</a></li>
-                                                <li><a href="#">Men’s Clothing</a></li>
-                                                <li><a href="#">Mobile Phones</a></li>
-                                                <li><a href="#">Acessories</a></li>
-                                            </ul>
-                                            <div class="megamenu-tabs-pane active">
-                                                <div class="megamenu-lists">
-                                                    <ul class="megamenu-list list-col-3">
-                                                        <li class="megamenu-list-title"><a href="#">HOT CATEGORIES <span class="badge badge-pill badge-danger">Hot</span></a></li>
-                                                        <li><a href="#">Dresses</a></li>
-                                                        <li><a href="#">Blouses &amp; Shirts</a></li>
-                                                        <li><a href="#">T-shirts</a></li>
-                                                        <li><a href="#">Rompers</a></li>
-                                                    </ul>
-                                                    <ul class="megamenu-list list-col-3">
-                                                        <li class="megamenu-list-title"><a href="#">INTIMATES</a></li>
-                                                        <li><a href="#">Bras</a></li>
-                                                        <li><a href="#">Brief Sets</a></li>
-                                                        <li><a href="#">Bostiers &amp; Corsets</a></li>
-                                                        <li><a href="#">Panties</a></li>
-                                                    </ul>
-                                                    <ul class="megamenu-list list-col-3">
-                                                        <li class="megamenu-list-title"><a href="#">WEDDINGS &amp; EVENTS</a></li>
-                                                        <li><a href="#">Wedding Dresses</a></li>
-                                                        <li><a href="#">Evening Dresses</a></li>
-                                                        <li><a href="#">Prom Dresses</a></li>
-                                                        <li><a href="#">Flower Dresses</a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="megamenu-lists">
-                                                    <ul class="megamenu-list list-col-3">
-                                                        <li class="megamenu-list-title"><a href="#">BOTTOMS</a></li>
-                                                        <li><a href="#">Skirts</a></li>
-                                                        <li><a href="#">Shorts</a></li>
-                                                        <li><a href="#">Leggings <span class="badge badge-pill badge-success">New</span></a></li>
-                                                        <li><a href="#">Jeans</a></li>
-                                                    </ul>
-                                                    <ul class="megamenu-list list-col-3">
-                                                        <li class="megamenu-list-title"><a href="#">OUTWEAR &amp; JACKETS</a></li>
-                                                        <li><a href="#">Blazers</a></li>
-                                                        <li><a href="#">Basics Jackets</a></li>
-                                                        <li><a href="#">Trench</a></li>
-                                                        <li><a href="#">Leather &amp; Suede</a></li>
-                                                    </ul>
-                                                    <ul class="megamenu-list list-col-3">
-                                                        <li class="megamenu-list-title"><a href="#">ACESSORIES</a></li>
-                                                        <li><a href="#">Sunglasses</a></li>
-                                                        <li><a href="#">Headwear</a></li>
-                                                        <li><a href="#">Baseball Caps</a></li>
-                                                        <li><a href="#">Belts</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="megamenu-tabs-pane">
-                                                <div class="megamenu-lists">
-                                                    <ul class="megamenu-list list-col-3">
-                                                        <li class="megamenu-list-title"><a href="#">HOT SALE</a></li>
-                                                        <li><a href="#">T-Shirts</a></li>
-                                                        <li><a href="#">Tank Tops</a></li>
-                                                        <li><a href="#">Polo</a></li>
-                                                        <li><a href="#">Shirts</a></li>
-                                                    </ul>
-                                                    <ul class="megamenu-list list-col-3">
-                                                        <li class="megamenu-list-title"><a href="#">OUTERWEAR</a></li>
-                                                        <li><a href="#">Jackets</a></li>
-                                                        <li><a href="#">Trench</a></li>
-                                                        <li><a href="#">Parkas</a></li>
-                                                        <li><a href="#">Sweaters</a></li>
-                                                    </ul>
-                                                    <ul class="megamenu-list list-col-3">
-                                                        <li class="megamenu-list-title"><a href="#">ACESSORIES</a></li>
-                                                        <li><a href="#">Eyewear Frames</a></li>
-                                                        <li><a href="#">Baseball Caps</a></li>
-                                                        <li><a href="#">Scarves</a></li>
-                                                        <li><a href="#">Belts</a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="megamenu-lists">
-                                                    <ul class="megamenu-list list-col-3">
-                                                        <li class="megamenu-list-title"><a href="#">BOTTOMS</a></li>
-                                                        <li><a href="#">Casual Pants</a></li>
-                                                        <li><a href="#">Cargo Pants</a></li>
-                                                        <li><a href="#">Jeans</a></li>
-                                                        <li><a href="#">Shorts</a></li>
-                                                    </ul>
-                                                    <ul class="megamenu-list list-col-3">
-                                                        <li class="megamenu-list-title"><a href="#">UNDERWEAR</a></li>
-                                                        <li><a href="#">Boxers</a></li>
-                                                        <li><a href="#">Briefs</a></li>
-                                                        <li><a href="#">Robes</a></li>
-                                                        <li><a href="#">Socks</a></li>
-                                                    </ul>
-                                                    <ul class="megamenu-list list-col-3">
-                                                        <li class="megamenu-list-title"><a href="#">SUNGLASSES</a></li>
-                                                        <li><a href="#">Pilot</a></li>
-                                                        <li><a href="#">Wayfarer</a></li>
-                                                        <li><a href="#">Square</a></li>
-                                                        <li><a href="#">Round</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="megamenu-tabs-pane">
-                                                <div class="megamenu-panel-row phones">
-                                                    <div class="col-3">
-                                                        <img class="w-100" src="img/bg-img/apple.jpg" alt="image">
-                                                        <h4 class="mb-0 text-center">Apple</h4>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <img class="w-100" src="img/bg-img/asus.jpg" alt="image">
-                                                        <h4 class="mb-0 text-center">Asus</h4>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <img class="w-100" src="img/bg-img/htc.jpg" alt="image">
-                                                        <h4 class="mb-0 text-center">HTC</h4>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <img class="w-100" src="img/bg-img/huawei.jpg" alt="image">
-                                                        <h4 class="mb-0 text-center">Huawei</h4>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="megamenu-panel-row phones">
-                                                    <div class="col-3">
-                                                        <img class="w-100" src="img/bg-img/lenovo.jpg" alt="image">
-                                                        <h4 class="mb-0 text-center">Lenovo</h4>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <img class="w-100" src="img/bg-img/meizu.jpg" alt="image">
-                                                        <h4 class="mb-0 text-center">Meizu</h4>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <img class="w-100" src="img/bg-img/nokia.jpg" alt="image">
-                                                        <h4 class="mb-0 text-center">Nokia</h4>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <img class="w-100" src="img/bg-img/samsung.jpg" alt="image">
-                                                        <h4 class="mb-0 text-center">Samsung</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="megamenu-tabs-pane">
-                                                <div class="megamenu-panel-row">
-                                                    <div class="col-6">
-                                                        <img class="w-100" src="img/bg-img/cam-01.png" alt="image">
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <img class="w-100" src="img/bg-img/cam-02.png" alt="image">
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <br>
-                                                <br>
-                                                <div class="megamenu-panel-row">
-                                                    <div class="col-6">
-                                                        <img class="w-100" src="img/bg-img/cam-03.png" alt="image">
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <img class="w-100" src="img/bg-img/cam-04.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li><a href="#">Pages</a>
-                                    <ul class="nav-dropdown">
-                                        <li><a href="about-us.html" target="_blank">About Us</a></li>
-                                        <li><a href="faq.html" target="_blank">FAQ</a></li>
-                                        <li><a href="contact.html" target="_blank">Contact</a></li>
-                                        <li><a href="404.html" target="_blank">404</a></li>
-                                        <li><a href="500.html" target="_blank">500</a></li>
-                                        <li><a href="coming-soon.html" target="_blank">Coming Soon</a></li>
-                                        <li><a href="maintenance-mood.html" target="_blank">Maintenance Mood</a></li>
-                                    </ul>
-                                </li>
-
-
-
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
+                <ul class="mainmenu">
+                  {{ Tree.get_nav_bar(categories, "") }}
+                </ul>
+              </div>
+            </nav>
+          </div>
         </div>
-        <!-- Bottom Header Area End -->
-    </header>
-    <!-- ***** Header Area End ***** -->
+      </div>
+    </div>
+  </div>
+</header>
+
+
+{% if category.linklist == "Y" %}
+    {% set initialCategory = { id: category.id } %}
+{% else %}
+    {% set initialCategory = category %}
+{% endif %}
+
+<mobile-navigation :navigation-tree-data="{{ categories | json_encode }}" :initial-category="{{ initialCategory | json_encode }}" template="#vue-mobile-navigation"></mobile-navigation>
 
 
 
+<div class="search-control">
+  <div class="inner">
+    <i class="fa fa-close close-search-control"></i>
+    <div class="box-search">
+      <p class="title">Suchbegriff eingeben</p>
+      <div id="searchBox" class="box-search-inner">
+        <div class="search-box-inner">
+          <div class="search-box-shadow-frame"><item-search template="#vue-item-search"></item-search>
 
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <shop-country-settings country-flag-prefix="flag-icon-" :localization-data="{{ services.localization.getLocalizationData() | json_encode }}">
            <div id="countrySettings" class="row cmp cmp-country-settings no-margin collapse">
                <div class="container-max">
