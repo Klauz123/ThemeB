@@ -1,9 +1,9 @@
 .navbar-brand img {
-max-height 7.5rem;
+max-height: 7.5rem !important;
 }
 @media only screen and (max-width: 600px) {
 .navbar-brand img {
-max-height:4.5rem;
+max-height:4.5rem !important;
 }}
 .brand {
 position: relative;

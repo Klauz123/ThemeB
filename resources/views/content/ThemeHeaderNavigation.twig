@@ -10,15 +10,15 @@
 
 	</div>
     <div class="container-max">
-      <h1> DAS IST EIN TEST </h1>
+    
         <div class="row">
             <div class="brand-wrapper" {% if showHeaderNavBar == "side" %}style="position: relative"{% endif %}>
                 <a class="navbar-brand pull-lg-left" href="{{ homepageURL }}">
-                     {#  {% if ('http' in companyLogo) or ('layout/' in companyLogo) %}#}
-                        {# <img alt="{{ companyName }}" src="{{ companyLogo }}" class="img-fluid" crossorigin="anonymous" />#}
-                    {# {% else %}#}
-                       {#  <img alt="{{ companyName }}" src="{{ plugin_path('Ceres') }}/{{ companyLogo }}" class="img-fluid" crossorigin="anonymous" />#}
-                   {#  {% endif %}#}
+                       {% if ('http' in companyLogo) or ('layout/' in companyLogo) %}#}
+
+                    {% else %}#}
+
+                   {% endif %}
 
                 </a>
 
