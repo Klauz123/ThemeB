@@ -9,6 +9,20 @@
         <div class="container-max">
             <div class="row">
                 {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
+                <div class="always-visible-search">
+                            <item-search template="#vue-item-search"
+                                         :show-item-images="{{ showItemImages | json_encode }}"
+                                         :forward-to-single-item="{{ forwardToSingleItem | json_encode }}">
+                                <div class="search-box-inner">
+                                    <div class="search-box-shadow-frame">
+                                        <input type="search" class="search-input"/>
+                                        <button class="search-submit" type="submit">
+                                            <i class="fa fa-search sm-up"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </item-search>
+                        </div>
 
                 <ul id="controlsList" class="controls-list list-inline">
 
