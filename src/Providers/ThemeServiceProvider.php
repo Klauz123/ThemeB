@@ -26,10 +26,9 @@ class ThemeServiceProvider extends ServiceProvider
     {
         $eventDispatcher->listen('IO.init.templates', function(Partial $partial)
         {
-           $partial->set('footer', 'Theme::content.ThemeFooter');
+
 					 $partial->set('navigation', 'Theme::content.ThemeHeaderNavigation');
 
-					 $partial->set('header', 'Theme::content.ThemeHeader');
 
 
 
