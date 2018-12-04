@@ -1,21 +1,3 @@
-Skip to content
-
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- @Klauz123 Sign out
-39
-18 101 plentymarkets/plugin-ceres
- Code  Issues 0  Pull requests 7  Projects 0  Wiki  Insights
-plugin-ceres/resources/views/PageDesign/Partials/Header/DefaultHeader.twig
-8e80eb2  20 days ago
-@felixdausch felixdausch ADD LayoutContainer to override the search bar
-@felixdausch @cjohannsen
-
-178 lines (164 sloc)  9.8 KB
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
 <header id="page-header" class="top-bar pos-f-t">
@@ -100,7 +82,7 @@ plugin-ceres/resources/views/PageDesign/Partials/Header/DefaultHeader.twig
                 </ul>
             </div>
         </div>
-        {% include "Theme::content.ThemeHeaderNavigation" %}
+        {% include "Ceres::PageDesign.Partials.Header.Navigation" %}
     </div>
 </header>
 
@@ -194,16 +176,3 @@ plugin-ceres/resources/views/PageDesign/Partials/Header/DefaultHeader.twig
         </shop-country-settings>
     </div>
 </div>
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Press h to open a hovercard with more details.
