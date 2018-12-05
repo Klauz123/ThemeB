@@ -5,14 +5,25 @@
 {% endif %}
 
 <header id="page-header" class="top-bar pos-f-t">
-  <div class="tophead">
+  <div class="tophead unfixed">
     <div class="container-max">
       <div class="row">
-          <div class="col-2 col-md-6"><a href="/">Home</a></div>
-          <div class="col-2 col-md-6"><a href="/Versand">Versand</a></div>
-          <div class="col-4 col-md-12"><a href="/Produktvorschau">Produktvorschau</a></div>
-          <div class="col-2 col-md-6"><a href="/Kontakt">Kontakt</a></div>
-          <div class="col-2 col-md-6"><a href="/Impressum">Impressum</a></div>
+        <div class="col-2 col-md-6">
+          <a href="/">Home</a>
+        </div>
+        <div class="col-2 col-md-6">
+          <a href="/Versand">Versand</a>
+        </div>
+        <div class="col-4 col-md-12">
+          <a href="/Produktvorschau">Produktvorschau</a>
+        </div>
+        <div class="col-2 col-md-6">
+          <a href="/Kontakt">Kontakt</a>
+        </div>
+        <div class="col-2 col-md-6">
+          <a href="/Impressum">Impressum</a>
+        </div>
+      </div>
     </div>
   </div>
   <div class="top-bar">
@@ -142,7 +153,7 @@
               <ul>
                 {% for currency in services.checkout.getCurrencyList()if currency.name in activeCurrencies or activeCurrencies[0] == 'all' or currency.name == services.checkout.getCurrencyData().name %}
                   <li{% if currency.name == services.checkout.getCurrencyData().name %} class="active" {% endif %}>
-                    <a href="{{ queryString({" currency": currency.name}) }}"="currency" :=":" currency.name})="currency.name})" }}""="}}""" rel="nofollow">
+                    <a href="{{ queryString({" currency": currency.name}) }}"="currency" :=":" currency.name})="currency.name})" }}""="}}" "" rel="nofollow">
                       {% if currencyFormatSelect == 'all' %}
                         {{ currency.name }}
                         ({{ currency.symbol }})
