@@ -9,6 +9,7 @@
         <div class="container-max">
             <div class="row">
                 {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
+                <div class="top-bar-items search-shown">
                 <div class="always-visible-search">
                             <item-search template="#vue-item-search"
                                          :show-item-images="{{ showItemImages | json_encode }}"
@@ -23,6 +24,7 @@
                                 </div>
                             </item-search>
                         </div>
+                      </div>
 
                 <ul id="controlsList" class="controls-list list-inline">
 
