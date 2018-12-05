@@ -27,6 +27,12 @@ margin-right: auto;
   .brand-wrapper{
     height: 50px;
   }
+  page-body {
+    margin-top: 2px;
+}
+.container-max.logosearch {
+    display: none;
+}
 
 }
 .container-max.logosearch>.row>div[class*=col-] {
@@ -39,9 +45,9 @@ margin-right: auto;
   padding: 0;
 }
 .top-bar .brand-wrapper .navbar-brand img {
-    height: 4rem;
-    max-height: 4rem;
-    width: 100%;
+
+    max-height: 6rem;
+
 }
 .top-bar #suchbox {
     padding: 0;
@@ -57,3 +63,6 @@ margin-right: auto;
     -ms-flex: 1 0 auto;
     flex: 1 0 auto;
   }
+  .page-body {
+    margin-top: 50px;
+}
