@@ -87,10 +87,16 @@
                 </ul>
             </div>
         </div>
-        <div class="top-bar unfixed">
+        <div class="container-max logosearch">
+          <div class="row">
 
-        <div class="top-bar-items search-shown">
-        <div class="always-visible-search">
+<div class="col-xs-7 col-sm-5">
+  <div class="brand-wrapper">
+    <a href="/" class="navbar-brand pull-lg-left"><img alt="Beeketal Lebensmitteltechnik" src="https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/logo2018.png" crossorigin="anonymous" class="img-fluid"></a>
+
+  </div></div>
+  <div class="col-md-5 search-top hidden-sm-down m-t-1">
+        <ul><li id="suchbox" class="cmp cmp-search-box  hidden-sm-down">
                     <item-search template="#vue-item-search"
                                  :show-item-images="{{ showItemImages | json_encode }}"
                                  :forward-to-single-item="{{ forwardToSingleItem | json_encode }}">
@@ -102,7 +108,8 @@
                                 </button>
                             </div>
                         </div>
-                    </item-search>
+                    </item-search></li></ul></div>
+                    <div class="col-xs-5 col-sm-6 col-md-2 m-t-1 p-x-0"><div class="control-basket pull-xs-right"><a href="#" class="toggle-basket-preview"><i waiting-class="fa fa-refresh fa-spin" aria-hidden="true" class="fa fa-shopping-cart"></i> <span class="badge">0,00&nbsp;€</span></a></div>
                 </div>
               </div>
             </div>
