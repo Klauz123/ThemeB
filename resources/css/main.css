@@ -1,9 +1,9 @@
-.navbar-brand img {
-max-height: 7.5rem !important;
+.brand img {
+max-height: 6rem !important;
 }
 @media only screen and (max-width: 600px) {
-.navbar-brand img {
-max-height:4.5rem !important;
+.brand img {
+max-height: 4.5rem !important;
 }}
 .brand {
 position: relative;
@@ -13,5 +13,9 @@ margin-left: auto;
 margin-right: auto;
 }
 .navbar{
-  background-color: #bbbbbb;
+  background-color: #e6e6e6;
+}
+.tophead {
+  background-color: #962d22;
+  color: #fff;
 }
