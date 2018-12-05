@@ -15,11 +15,17 @@ margin-right: auto;
 .navbar{
   background-color: #e6e6e6;
 }
+.top-bar .controls-list>li {
+    font-size: 1.2rem;
+  }
 .tophead {
   background-color: #962d22;
   color: #fff;
 }
 @media only screen and (max-width: 600px) {
+.desk{
+  display: block;
+}
   nav.navbar.{
     height: 50px;
 
@@ -65,4 +71,9 @@ margin-right: auto;
   }
   .page-body {
     margin-top: 50px;
+}
+@media only screen and (min-width: 600px) {
+.desk{
+  display: none;
+}
 }
