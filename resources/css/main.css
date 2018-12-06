@@ -91,9 +91,10 @@ i.fa.fa-shopping-cart {
   display: none;
 }
 }
-@media (min-width: 992px)
+@media (min-width: 992px){
 #mainNavbarCollapsable ul.mainmenu>li>a {
     padding: 1.3rem 1rem;
     width: 100%;
     font-weight: bold;
+}
 }
