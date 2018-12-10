@@ -98,3 +98,23 @@ i.fa.fa-shopping-cart {
     font-weight: bold;
 }
 }
+.top-bar{
+  background: white;
+}
+@media (min-width: 1px){
+.top-bar .controls-list {
+  width: -webkit-fill-available;
+  background: #962d22;
+
+  }
+  }
+  @media (min-width: 544px){
+.top-bar .controls-list>li a:not(.btn) {
+  font-weight: bold;
+  color: white;
+
+}
+}
+.anicon>.anicon-search-item:after {
+  background: #962d22;
+    }
