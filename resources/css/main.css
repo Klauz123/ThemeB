@@ -39,6 +39,8 @@ margin-right: auto;
 .container-max.logosearch {
     display: none;
 }
+
+}
 .top-container {
   width: 100%;
   z-index: auto;
@@ -46,7 +48,6 @@ margin-right: auto;
     margin-right: auto;
      padding-left: 15px;
      padding-right: 15px;
-}
 }
 span.badge {
     font-size: 1.3rem;
@@ -125,3 +126,6 @@ i.fa.fa-shopping-cart {
 .anicon>.anicon-search-item:after {
   background: #962d22;
     }
+    .list-inline {
+        padding-left: 1;
+      }
