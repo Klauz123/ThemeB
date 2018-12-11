@@ -23,6 +23,9 @@ margin-right: auto;
   color: #fff;
 }
 @media only screen and (max-width: 600px) {
+  div#page-body {
+    margin-top: 0px;
+}
 .desk{
   display: block;
 }
