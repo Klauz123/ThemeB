@@ -66,6 +66,10 @@
     display: none;
   }
 }
+div#page-body {
+  margin-top: 0px;
+  background: white;
+}
 
 .top-container {
   width: 100%;
