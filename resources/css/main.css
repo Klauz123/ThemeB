@@ -1,6 +1,10 @@
 .brand img {
 max-height: 6rem !important;
 }
+.top-bar{
+  box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
+            0 5px 15px 0 rgba(0,0,0,0.08);
+}
 @media only screen and (max-width: 600px) {
 .brand img {
 max-height: 4.5rem !important;
@@ -94,9 +98,7 @@ i.fa.fa-shopping-cart {
     -ms-flex: 1 0 auto;
     flex: 1 0 auto;
   }
-  div#page-body {
-    margin-top: 50px;
-}
+
 @media only screen and (min-width: 600px) {
 .desk{
   display: none;
