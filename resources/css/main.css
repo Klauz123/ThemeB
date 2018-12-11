@@ -42,6 +42,7 @@
 @media only screen and (max-width: 600px) {
   div#page-body {
     margin-top: 0px;
+    background: white;
   }
 
   .desk {
@@ -58,6 +59,7 @@
 
   page-body {
     margin-top: 2px;
+    background: white;
   }
 
   .container-max.logosearch {
