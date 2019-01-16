@@ -155,7 +155,7 @@ i.fa.fa-shopping-cart {
 
 @media (min-width: 1px) {
   .top-bar .controls-list {
-    width: -webkit-fill-available;
+    width: 100%;
     background: #962d22;
   }
 }
