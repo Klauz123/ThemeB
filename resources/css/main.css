@@ -169,9 +169,7 @@ i.fa.fa-shopping-cart {
     width: 100%;
     background: #962d22;
   }
-  div#page-body {
-    margin-top: 100px;
-}
+
 }
 
 @media (min-width: 544px) {
@@ -179,9 +177,7 @@ i.fa.fa-shopping-cart {
     font-weight: bold;
     color: white;
   }
-  div#page-body {
-    margin-top: 253px;
-}
+
 }
 
 .anicon>.anicon-search-item:after {
@@ -223,9 +219,7 @@ i.fa.fa-shopping-cart {
 .container-max.logosearch>div[class*=row] {
    display: block;
 }
-div#page-body {
-    margin-top: 253px;
-}
+
 
 .top-container>div[class*=row] {
    display: block;
