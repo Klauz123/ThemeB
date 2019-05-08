@@ -169,6 +169,9 @@ i.fa.fa-shopping-cart {
     width: 100%;
     background: #962d22;
   }
+  div#page-body {
+    margin-top: 100px;
+}
 }
 
 @media (min-width: 544px) {
@@ -176,6 +179,9 @@ i.fa.fa-shopping-cart {
     font-weight: bold;
     color: white;
   }
+  div#page-body {
+    margin-top: 253px;
+}
 }
 
 .anicon>.anicon-search-item:after {
@@ -204,11 +210,28 @@ i.fa.fa-shopping-cart {
 .middlefooter ul li {
   padding: 2px 0
 }
-
+.row.headrow {
+    display: block !important;
+}
 .middlefooter li:before {
   content: "\00b7";
   margin-right: 15px
 }
+.container-max.logosearch>.row>div[class*=col-] {
+    width: fit-content;
+}
+.container-max.logosearch>div[class*=row] {
+   display: block;
+}
+div#page-body {
+    margin-top: 253px;
+}
+
+.top-container>div[class*=row] {
+   display: block;
+
+
+   }
 
 .middlefooter li.phone {
   font-size: 16px;
