@@ -12,22 +12,29 @@
 {% set activeCurrencies = config("Ceres.currency.available_currencies") | split(', ') %}
 {% set enableCurrencySelect = config("Ceres.currency.enable_selection") == "true" and activeCurrencies | length > 0 %}
 {% set currencyFormat = config("Ceres.currency.format") %}
-{% set currencyFormatSelect = config("Ceres.currency.format_selection") %}+
-{% set scriptId = uid() %}
-<script id="">
-    document.getElementById("vue-app").style.marginTop = document.getElementById("page-header").getBoundingClientRect().height + 'px';
-    document.getElementById("").remove();
-</script>
+{% set currencyFormatSelect = config("Ceres.currency.format_selection") %}
 
 
 {% set headerContainer = LayoutContainer.show("Ceres::Header") | trim %}
 {% if headerContainer is empty %}
-    {% include "Theme::content.ThemeHeader" %}
+     {% include "Theme::content.ThemeHeader" %}
 {% else %}
-<header id="page-header" class="fixed-top">
-    {{ headerContainer | raw }}
-</header>
+
+                {{ headerContainer | raw }}
+
 {% endif %}
+
+{% set scriptId = uid() %}
+<script id="{{ scriptId }}">
+    var vueApp = document.getElementById("vue-app");
+    var pageHeader = document.getElementById("page-header");
+    if ( !!vueApp && !!pageHeader )
+    {
+        vueApp.style.marginTop = pageHeader.getBoundingClientRect().height + 'px';
+    }
+    var scriptElement = document.getElementById("{{ scriptId }}");
+    scriptElement.parentElement.removeChild(scriptElement);
+</script>
 
 <div>
     {% if category.linklist == "Y" %}
@@ -36,7 +43,7 @@
         {% set initialCategory = category %}
     {% endif %}
     <mobile-navigation
-            :navigation-tree-data="{{ categories | json_encode }}"
+            navigation-tree-data="{{ categories | json_data }}"
             :initial-category="{{ initialCategory | json_encode }}"
             template="#vue-mobile-navigation">
     </mobile-navigation>
