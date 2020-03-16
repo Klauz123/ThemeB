@@ -266,12 +266,12 @@ i.fa.fa-shopping-cart {
 div#mainNavbarCollapsable.sticky{
       position: fixed;
       background: white;
-      transform: translateY(-100%);
       top: 35px !important;
 }
 div#top-bar-header.sticky{
   position: fixed;
     top: 0 !important;
-      transform: translateY(-100%);
+    width: 100% !important;
+
 }
 }
