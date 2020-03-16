@@ -265,7 +265,7 @@ i.fa.fa-shopping-cart {
 @media only screen and (min-width: 801px) {
 div#mainNavbarCollapsable.sticky{
       position: fixed;
-      background: white;
+      background-color: #e6e6e6;
       top: 35px !important;
 }
 div#top-bar-header.sticky{
