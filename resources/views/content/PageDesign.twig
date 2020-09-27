@@ -4,6 +4,8 @@
 {{ component( "Ceres::PageDesign.Components.Notifications" ) }}
 {{ component( "Ceres::PageDesign.Components.Popper" ) }}
 {{ component( "Ceres::Customer.Components.ForgotPassword" ) }}
+{{ get_shop_builder_scripts() }}
+
 
 {% if isShopBuilder %}
     {% include "Ceres::Widgets.WidgetComponents" %}
