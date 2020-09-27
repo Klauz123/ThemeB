@@ -32,12 +32,12 @@
                         <user-login-handler>
                             <a data-toggle="modal">
                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                <span class="hidden-xs-down">{{ trans("Ceres::Template.login") }}</span>
+                                <span class="d-none d-sm-block">{{ trans("Ceres::Template.login") }}</span>
                             </a>
                             <span class="pipe"></span>
                             <a data-toggle="modal">
                                 <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                <span class="hidden-xs-down">{{ trans("Ceres::Template.loginRegister") }}</span>
+                                <span class="d-none d-sm-block">{{ trans("Ceres::Template.loginRegister") }}</span>
                             </a>
                         </user-login-handler>
                     </li>
@@ -106,17 +106,17 @@
           <div class="row headrow">
 
 <div class="col-xs-7 col-sm-5">
-  <div class="brand-wrapper">
+  <div class="px-lg-3">
     <a href="/" class="navbar-brand float-lg-left"><img alt="Beeketal Lebensmitteltechnik" src="https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/LogoWebsiteBeeketal.jpg" crossorigin="anonymous" class="img-fluid"></a>
 
   </div></div>
-  <div class="col-md-5 search-top hidden-sm-down mt-1">
-        <ul><li id="suchbox" class="cmp cmp-search-box  hidden-sm-down">
+  <div class="col-md-5 search-top d-none d-md-block mt-1">
+        <ul><li id="suchbox" class="cmp cmp-search-box d-none d-md-block">
                     <item-search template="#vue-item-search"
                                  :show-item-images="{{ showItemImages | json_encode }}"
                                  :forward-to-single-item="{{ forwardToSingleItem | json_encode }}">
-                        <div class="search-box-inner">
-                            <div class="search-box-shadow-frame">
+                        <div class="position-relative d-flex container-max">
+                            <div class="d-flex>
                                 <input type="search" class="search-input"/>
                                 <button class="search-submit" type="submit">
                                     <i class="fa fa-search sm-up"></i>
