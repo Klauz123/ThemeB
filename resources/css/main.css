@@ -263,7 +263,7 @@ i.fa.fa-shopping-cart {
   }
 }
 @media only screen and (min-width: 801px) {
-{
+div#mainNavbarCollapsable.sticky{
       position: fixed;
       background-color: #e6e6e6;
       top: 0px !important;
@@ -282,67 +282,4 @@ div#top-mini-bar.sticky{
 display: none;
 
 }
-div#mainNavbarCollapsable.sticky{
-  animation: 2s ease 0s normal forwards 1 running slidedown;
-  -webkit-animation-name: slidedown;
-  -webkit-animation-duration: 2s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-timing-function: ease;
-  -webkit-animation-fill-mode: forwards;
-  -ms-animation-name: slidedown;
-  -ms-animation-duration: 2s;
-  -ms-animation-iteration-count: 1;
-  -ms-animation-timing-function: ease;
-  -ms-animation-fill-mode: forwards;
-  -moz-animation: 2s ease 0s normal forwards 1 running slidedown;
-  transform: translateY(-100%);
-  -webkit-transform: translateY(-100px);
-  -ms-transform: translateY(-100px);
-  -moz-transform: translateY(-100px);
-  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.4) !important;
-  max-height: 100%;
-  padding: 0;
-  position: fixed !important;
-  top: 0 !important;
-  width: 100%;
-  border-top: none;
-  background: #fff;
-  z-index: 9999
-}
-
-.fixed.sticky .logo {
-  margin-top: 5px;
-  margin-left: -42px
-}
-
-.fixed.sticky .logo img {
-  max-height: 65px
-}
-
-.fixed.sticky .logo-holder {
-  display: none
-}
-
-.fixed #wrap {
-  margin-top: 0
-}
-}
-
-
-@keyframes slidedown {
-  100% {
-    transform: translateY(0px)
-  }
-}
-
-@-webkit-keyframes slidedown {
-  100% {
-    -webkit-transform: translateY(0px)
-  }
-}
-
-@-moz-keyframes slidedown {
-  100% {
-    -moz-transform: translateY(0px)
-  }
 }
