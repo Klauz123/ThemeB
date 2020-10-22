@@ -10,11 +10,11 @@
 
         <div class="row">
             <div class=".px-lg-3 desk" {% if showHeaderNavBar == "side" %}style="position: relative"{% endif %}>
-                <a class="navbar-brand float-lg-left" href="${ homepageURL }">
+                <a class="navbar-brand float-lg-left" href="{{ homepageURL }}">
                        {% if ('http' in companyLogo) or ('layout/' in companyLogo) %}
-                        <img alt="${ companyName }" src="https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/LogoWebsiteBeeketal.jpg" class="img-fluid" crossorigin="anonymous" />
+                        <img alt="{{ companyName }}" src="https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/LogoWebsiteBeeketal.jpg" class="img-fluid" crossorigin="anonymous" />
                     {% else %}
-                        <img alt="${ companyName }" src="https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/LogoWebsiteBeeketal.jpg" class="img-fluid" crossorigin="anonymous" />
+                        <img alt="{{ companyName }}" src="https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/LogoWebsiteBeeketal.jpg" class="img-fluid" crossorigin="anonymous" />
                    {% endif %}
 
                 </a>

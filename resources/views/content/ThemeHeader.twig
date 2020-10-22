@@ -1,14 +1,14 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 {% set headerContainer = LayoutContainer.show("Ceres::Header") | trim %}
 {% if headerContainer is not empty %}
-    ${ headerContainer | raw }
+    {{ headerContainer | raw }}
 {% endif %}
 
 <header id="page-header" class="top-bar fixed-top">
     <div id="top-bar-header" class="top-bar">
         <div id="top-mini-bar" class="top-container">
             <div class="row headrow">
-                ${ LayoutContainer.show("Ceres::Header.LeftSide") }
+                {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
 
 
                 <ul id="controlsList" class="controls-list list-inline">
@@ -32,12 +32,12 @@
                         <user-login-handler>
                             <a data-toggle="modal">
                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                <span class="d-none d-sm-block">${ trans("Ceres::Template.login") }</span>
+                                <span class="d-none d-sm-block">{{ trans("Ceres::Template.login") }}</span>
                             </a>
                             <span class="pipe"></span>
                             <a data-toggle="modal">
                                 <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                <span class="d-none d-sm-block">${ trans("Ceres::Template.loginRegister") }</span>
+                                <span class="d-none d-sm-block">{{ trans("Ceres::Template.loginRegister") }}</span>
                             </a>
                         </user-login-handler>
                     </li>
@@ -45,7 +45,7 @@
                         <a data-toggle="collapse" href="#countrySettings" aria-expanded="false"
                            aria-controls="countrySettings"
                            data-parent="#controlsList">
-                            <i class="flag-icon flag-icon-${ lang }"></i>
+                            <i class="flag-icon flag-icon-{{ lang }}"></i>
                         </a>
                     </li>
 
@@ -57,7 +57,7 @@
                                aria-expanded="false"
                                aria-controls="currencySelect"
                                data-parent="#controlsList">
-                                <span>${ services.checkout.getCurrencyData()[currencyFormat] }</span>
+                                <span>{{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
                             </a>
                         </li>
                     {% endif %}
@@ -90,13 +90,13 @@
 
                             <i v-waiting-animation="$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i>
                             {% if config("Ceres.header.basket_values") != "quantity" %}
-                                <span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 ${ services.checkout.getCurrencyData()[currencyFormat] }</span>
-                                <span class="badge" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 ${ services.checkout.getCurrencyData()[currencyFormat] }</span>
+                                <span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+                                <span class="badge" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
                             {% endif %}
                         </a>
 
                         {% if config("Ceres.basket.preview_type") != "right" %}
-                            <basket-preview template="#vue-basket-preview-hover" :show-net-prices="${ showNetPrices | json_encode }"></basket-preview>
+                            <basket-preview template="#vue-basket-preview-hover" :show-net-prices="{{ showNetPrices | json_encode }}"></basket-preview>
                         {% endif %}
                     </li>
                 </ul>
@@ -113,8 +113,8 @@
   <div class="col-md-5 search-top d-none d-md-block mt-1">
         <ul><li id="suchbox" class="cmp cmp-search-box d-none d-md-block">
                     <item-search template="#vue-item-search"
-                                 :show-item-images="${ showItemImages | json_encode }"
-                                 :forward-to-single-item="${ forwardToSingleItem | json_encode }">
+                                 :show-item-images="{{ showItemImages | json_encode }}"
+                                 :forward-to-single-item="{{ forwardToSingleItem | json_encode }}">
                         <div class="position-relative d-flex container-max">
                             <div class="d-flex>
                                 <input type="search" class="search-input"/>
@@ -124,8 +124,8 @@
                             </div>
                         </div>
                     </item-search></li></ul></div>
-                    <div class="col-xs-5 col-sm-6 col-md-2 mt-1 px-0"><div class="control-basket float-xs-right"><a v-toggle-basket-preview href="#" class="toggle-basket-preview"><i v-waiting-animation="$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 ${ services.checkout.getCurrencyData()[currencyFormat] }</span>
-                    <span class="badge" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 ${ services.checkout.getCurrencyData()[currencyFormat] }</span></a></div>
+                    <div class="col-xs-5 col-sm-6 col-md-2 mt-1 px-0"><div class="control-basket float-xs-right"><a v-toggle-basket-preview href="#" class="toggle-basket-preview"><i v-waiting-animation="$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+                    <span class="badge" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span></a></div>
                 </div>
               </div>
             </div>
@@ -146,7 +146,7 @@
             {% if overrideSearchBar | trim is empty %}
                 <item-search template="#vue-item-search"></item-search>
             {% else %}
-                ${ overrideSearchBar | raw }
+                {{ overrideSearchBar | raw }}
             {% endif %}
         </div>
 
@@ -157,17 +157,17 @@
 
                         <div class="currency-list col-xs-12">
                             <div class="list-title">
-                                <strong>${ trans("Ceres::Template.headerCurrency") }</strong>
+                                <strong>{{ trans("Ceres::Template.headerCurrency") }}</strong>
                                 <hr>
                             </div>
                             <ul>
                                 {% for currency in services.checkout.getCurrencyList() if currency.name in activeCurrencies or activeCurrencies[0] == 'all' or currency.name == services.checkout.getCurrencyData().name %}
                                     <li{% if currency.name == services.checkout.getCurrencyData().name %} class="active"{% endif %}>
-                                        <a href="${ queryString({"currency": currency.name}) }" rel="nofollow">
+                                        <a href="{{ queryString({"currency": currency.name}) }}" rel="nofollow">
                                             {% if currencyFormatSelect == 'all' %}
-                                                ${ currency.name } (${ currency.symbol })
+                                                {{ currency.name }} ({{ currency.symbol }})
                                             {% else %}
-                                                ${ currency[currencyFormatSelect] }
+                                                {{ currency[currencyFormatSelect] }}
                                             {% endif %}
                                         </a>
                                     </li>
@@ -181,8 +181,8 @@
 
        <shop-country-settings
                 country-flag-prefix="flag-icon-"
-                shipping-countries="${ services.country.getActiveCountriesList() | filterFields(['id','currLangName', 'isoCode2', 'states.id', 'states.name']) | json_data("activeCountriesList") }"
-                :shipping-country-id="${ services.checkout.getShippingCountryId }">
+                shipping-countries="{{ services.country.getActiveCountriesList() | filterFields(['id','currLangName', 'isoCode2', 'states.id', 'states.name']) | json_data("activeCountriesList") }}"
+                :shipping-country-id="{{ services.checkout.getShippingCountryId }}">
             <div id="countrySettings" class="row cmp cmp-country-settings no-margin collapse">
                 <div class="container-max">
                     <div class="row no-padding">
@@ -190,7 +190,7 @@
 
                             <div class="language-settings">
                                 <div class="list-title">
-                                    <strong>${ trans("Ceres::Template.headerSelectLanguage") }</strong>
+                                    <strong>{{ trans("Ceres::Template.headerSelectLanguage") }}</strong>
                                     <hr>
                                 </div>
 
@@ -199,9 +199,9 @@
                                 <ul>
                                     {% for language in languageList %}
                                         <li{% if lang == language %} class="active"{% endif %}>
-                                            <a href="{% if languageUrls[language] is defined %}${ languageUrls[language] ~ queryString() }{% elseif language != defaultLanguage %}/${ language }${ urls.trailingSlashSuffix }{% else %}/{% endif %}" data-update-url>
-                                                <i class="flag-icon flag-icon-${ language }"></i>
-                                                ${ trans("Ceres::Template.header" ~ language | capitalize) }
+                                            <a href="{% if languageUrls[language] is defined %}{{ languageUrls[language] ~ queryString() }}{% elseif language != defaultLanguage %}/{{ language }}{{ urls.trailingSlashSuffix }}{% else %}/{% endif %}" data-update-url>
+                                                <i class="flag-icon flag-icon-{{ language }}"></i>
+                                                {{ trans("Ceres::Template.header" ~ language | capitalize) }}
                                             </a>
                                         </li>
                                     {% endfor %}
@@ -211,10 +211,10 @@
                         <div class="country-settings-inner countries col-lg-6">
                             <div class="shipping-settings">
                                 <div class="list-title">
-                                    <strong>${ trans("Ceres::Template.headerSelectShippingCountry") }</strong>
+                                    <strong>{{ trans("Ceres::Template.headerSelectShippingCountry") }}</strong>
                                     <hr>
                                 </div>
-                                <shipping-country-select :disable-input="${ services.template.isCheckout() | json_encode() }"></shipping-country-select>
+                                <shipping-country-select :disable-input="{{ services.template.isCheckout() | json_encode() }}"></shipping-country-select>
                             </div>
                         </div>
                     </div>
