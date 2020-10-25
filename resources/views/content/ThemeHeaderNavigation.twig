@@ -3,11 +3,11 @@
 {% set companyName  = trans("Ceres::Template.headerCompanyName") %}
 {% set useMegaMenu  = config("Ceres.header.megamenu_levels") > 1 %}
 
-<nav class="navbar header-fw p-0 border-bottom{% if useMegaMenu %} megamenu{% else %} normalmenu{% endif %}">
-    <div class="container-max d-block">
-        <div class="row mx-0 position-relative d-flex">
-            <div class="brand-wrapper px-lg-3{% if showHeaderNavBar == "side" %} position-relative{% endif %}">
-                <a class="navbar-brand py-2" href="{{ homepageURL }}">
+<nav class="navbar{% if useMegaMenu %} megamenu{% else %} {% endif %}">
+    <div class="container-max">
+        <div class="row">
+            <div class="brand-wrapper desk{% if showHeaderNavBar == "side" %} position-relative{% endif %}">
+                <a class="navbar-brand float-lg-left" href="{{ homepageURL }}">
                   {% if ('http' in companyLogo) or ('layout/' in companyLogo) %}
                    <img alt="{{ companyName }}" src="https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/LogoWebsiteBeeketal.jpg" class="img-fluid" crossorigin="anonymous" />
                   {% else %}
@@ -21,7 +21,7 @@
             </div>
 
             <div class="main-navbar-collapsable d-none d-lg-block">
-                {% if showHeaderNavBar == "top" or showHeaderNavBar == "both" or not services.template.isCategory() %}
+                {% if showHeaderNavBar == "top" or showHeaderNavBar == "both" or not services.template.isCategory() %1}
                     {% include "Ceres::PageDesign.Partials.Header.NavigationList" %}
                 {% endif %}
             </div>
