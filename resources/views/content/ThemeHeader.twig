@@ -1,15 +1,10 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
 <header id="page-header" class="top-bar fixed-top">
-    <div class="">
-        <div class="">
           <div id="top-bar-header" class="top-bar">
-                <div class="">
                     <div id="top-mini-bar" class="top-container">
                         <div class="row headrow">
                             {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
-                            <div class="">
-                                <div class="">
                                   <ul id="controlsList" class="controls-list list-inline">
                                       <li class="list-inline-item addedlist">
                                         <a href="/"><span class="hidden-xs-down">Home</span></a>
@@ -144,8 +139,7 @@
                                             </lazy-load>
                                         </li>
                                     </ul>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
 
@@ -228,7 +222,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
                 <div  id="header-logo-search" class="container-max logosearch">
                   <div class="row headrow">
 
@@ -239,7 +232,7 @@
           </div></div>
           <div class="col-md-5 search-top hidden-sm-down mt-1">
                 <ul><li id="suchbox" class="cmp cmp-search-box  hidden-sm-down">
-                            <item-search 
+                            <item-search template="#vue-item-search"
                                          :show-item-images="{{ showItemImages | json_encode }}"
                                          :forward-to-single-item="{{ forwardToSingleItem | json_encode }}">
                                 <div class="search-box-inner">
@@ -263,6 +256,5 @@
                     {% include "Ceres::PageDesign.Partials.Header.Breadcrumb" %}
                 {% endif %}
             </div>
-        </div>
-    </div>
+
 </header>

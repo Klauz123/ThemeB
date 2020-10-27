@@ -346,3 +346,26 @@ div#mainNavbarCollapsable.sticky{
     -moz-transform: translateY(0px)
   }
 }
+
+@media (min-width: 992px){
+#mainNavbarCollapsable ul.mainmenu>li>ul>li {
+    color: #fffefe;
+    text-align: left;
+}
+}
+
+.top-bar .controls-list>li a:not(.btn) {
+    padding: 0.5rem .8rem;
+    display: inline-block;
+}
+.top-bar .controls-list {
+    margin-bottom: 0;
+    font-size: 0;
+    display: flex;
+}
+.normalmenu .collapse {
+  z-index:1
+}
+.control-basket .toggle-basket-preview {
+background-color: white;
+}
