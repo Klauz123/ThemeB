@@ -386,3 +386,7 @@ background-color: transparent;
 .control-basket .toggle-basket-preview:hover{
   background-color: transparent;
 }
+@media (max-width: 991.98px){
+nav.navbar .container-max>div.row .brand-wrapper {
+    width: 100%;
+}}
