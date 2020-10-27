@@ -367,5 +367,5 @@ div#mainNavbarCollapsable.sticky{
   z-index:1
 }
 .control-basket .toggle-basket-preview {
-background-color: white;
+background-color: transparent;
 }
