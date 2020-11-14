@@ -46,6 +46,7 @@
 
 .navbar {
   background-color: #e6e6e6;
+  padding: 0px;
 }
 
 .top-bar .controls-list>li {
@@ -112,7 +113,6 @@ i.fa.fa-shopping-cart {
 
 .top-bar a:not(.btn) {
   text-decoration: none;
-  color: #962d22;
   outline: none;
 }
 

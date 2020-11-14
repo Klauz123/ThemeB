@@ -244,7 +244,7 @@
                                     </div>
                                 </div>
                             </item-search></li></ul></div>
-                            <div class="col-xs-5 col-sm-6 col-md-2 mt-1 px-0"><div class="control-basket float-xs-right"><a v-toggle-basket-preview href="#" class="toggle-basket-preview"><i v-waiting-animation="$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+                            <div class="col-xs-5 col-sm-6 col-md-2 mt-1 px-0"><div class="control-basket float-xs-right"><a v-toggle-basket-preview href="#" style = "color: #962d22" class="toggle-basket-preview"><i v-waiting-animation="$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
                             <span class="badge" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span></a></div>
                         </div>
                       </div>
