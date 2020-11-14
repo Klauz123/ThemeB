@@ -35,6 +35,9 @@
     display: none;
   }
 }
+iframe {
+    max-width: 100% !important;
+}
 
 .brand {
   position: relative;
