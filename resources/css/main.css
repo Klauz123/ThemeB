@@ -221,7 +221,6 @@ i.fa.fa-shopping-cart {
     display: block !important;
 }
 .middlefooter li:before {
-  content: "\00b7";
   margin-right: 15px
 }
 .container-max.logosearch>.row>div[class*=col-] {
