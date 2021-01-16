@@ -1,30 +1,25 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
-<header id="page-header" class="fixed-top default-header d-print-none">
-    <div class="container-max">
-        <div class="row flex-row-reverse position-relative">
-            <div id="page-header-parent" class="col-12 header-container" data-header-offset>
-                <div class="top-bar header-fw">
-                    <div class="container-max px-0 pr-lg-3">
+<header id="page-header" class="top-bar fixed-top">
+          <div id="top-bar-header" class="top-bar">
+                    <div id="top-mini-bar" class="top-container">
                         <div class="row headrow">
                             {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
-                            <div class="top-bar-items">
-                                <div class="controls">
-                                    <ul id="controlsList" class="controls-list mb-0 d-flex list-inline pl-2 pl-sm-1 pl-md-0">
+                                  <ul id="controlsList" class="controls-list list-inline">
                                       <li class="list-inline-item addedlist">
                                         <a href="/"><span class="hidden-xs-down">Home</span></a>
                                       </li>
                                       <li class="list-inline-item addedlist">
-                                        <a href="https://www.beeketal.de/content/versand/"><span class="hidden-xs-down">Zahlung & Versand</span></a>
+                                        <a href="https://www.beeketal.de/content/versand/"><span class="hidden-xs-down">{{ trans("Ceres::Template.paymentshipping") }}</span></a>
                                       </li>
                                       <li class="list-inline-item addedlist">
-                                        <a href="https://www.beeketal.de/content/produktvorschau/"><span class="hidden-xs-down">Produktvorschau</span></a>
+                                        <a href="https://www.youtube.com/user/BEEKETAL/videos"><span class="hidden-xs-down">{{ trans("Ceres::Template.productVideos") }}</span></a>
                                       </li>
                                       <li class="list-inline-item addedlist">
-                                        <a href="/contact"><span class="hidden-xs-down">Kontakt</span></a>
+                                        <a href="/contact"><span class="hidden-xs-down">{{ trans("Ceres::Template.footerContact") }}</span></a>
                                       </li>
                                       <li class="list-inline-item addedlist">
-                                        <a href="https://www.beeketal.de/legal-disclosure"><span class="hidden-xs-down">Impressum</span></a>
+                                        <a href="https://www.beeketal.de/legal-disclosure"><span class="hidden-xs-down">{{ trans("Ceres::Template.footerLegalDisclosure") }}</span></a>
                                       </li>
 
                                         <li class="list-inline-item control-user">
@@ -144,8 +139,7 @@
                                             </lazy-load>
                                         </li>
                                     </ul>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
 
@@ -228,22 +222,21 @@
                             </div>
                         </div>
                     </div>
-                </div>
                 <div  id="header-logo-search" class="container-max logosearch">
                   <div class="row headrow">
 
         <div class="col-xs-7 col-sm-5">
-          <div class="px-lg-3">
+          <div class="brand-wrapper">
             <a href="/" class="navbar-brand float-lg-left"><img alt="Beeketal Lebensmitteltechnik" src="https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/LogoWebsiteBeeketal.jpg" crossorigin="anonymous" class="img-fluid"></a>
 
           </div></div>
-          <div class="col-md-5 search-top d-none d-md-block mt-1">
-                <ul><li id="suchbox" class="cmp cmp-search-box d-none d-md-block">
-                            <item-search template="#vue-item-search"
+          <div class="col-md-5 search-top hidden-sm-down mt-1">
+                <ul><li id="suchbox" class="cmp cmp-search-box  hidden-sm-down">
+                            <item-search class="searchbox" template="#vue-item-search"
                                          :show-item-images="{{ showItemImages | json_encode }}"
                                          :forward-to-single-item="{{ forwardToSingleItem | json_encode }}">
-                                <div class="position-relative d-flex container-max">
-                                    <div class="d-flex">
+                                <div class="search-box-inner">
+                                    <div class="search-box-shadow-frame">
                                         <input type="search" class="search-input"/>
                                         <button class="search-submit" type="submit">
                                             <i class="fa fa-search sm-up"></i>
@@ -251,7 +244,7 @@
                                     </div>
                                 </div>
                             </item-search></li></ul></div>
-                            <div class="col-xs-5 col-sm-6 col-md-2 mt-1 px-0"><div class="control-basket float-xs-right"><a v-toggle-basket-preview href="#" class="toggle-basket-preview"><i v-waiting-animation="$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+                            <div class="col-xs-5 col-sm-6 col-md-2 mt-1 px-0"><div class="control-basket float-xs-right"><a v-toggle-basket-preview href="#" style = "color: #962d22" class="toggle-basket-preview"><i v-waiting-animation="$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
                             <span class="badge" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span></a></div>
                         </div>
                       </div>
@@ -263,6 +256,5 @@
                     {% include "Ceres::PageDesign.Partials.Header.Breadcrumb" %}
                 {% endif %}
             </div>
-        </div>
-    </div>
+
 </header>

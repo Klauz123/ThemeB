@@ -35,6 +35,10 @@
     display: none;
   }
 }
+iframe {
+    max-width: 100% !important;
+}
+
 
 .brand {
   position: relative;
@@ -46,6 +50,7 @@
 
 .navbar {
   background-color: #e6e6e6;
+  padding: 0px;
 }
 
 .top-bar .controls-list>li {
@@ -112,7 +117,6 @@ i.fa.fa-shopping-cart {
 
 .top-bar a:not(.btn) {
   text-decoration: none;
-  color: #962d22;
   outline: none;
 }
 
@@ -136,7 +140,6 @@ i.fa.fa-shopping-cart {
   position: relative;
   top: 0;
   background-color: unset;
-  width: 38%;
   right: unset;
   left: 0;
   margin-right: 2rem;
@@ -144,8 +147,16 @@ i.fa.fa-shopping-cart {
   -webkit-box-flex: 1;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
 }
-
+.searchbox{
+  padding-right: 0px;
+ padding-left: 0px0:
+}
+.normalmenu .collapse-inner>li a {
+    padding: 1rem;
+    color: white;
+}
 @media only screen and (min-width: 600px) {
   .desk {
     display: none;
@@ -210,7 +221,6 @@ i.fa.fa-shopping-cart {
     display: block !important;
 }
 .middlefooter li:before {
-  content: "\00b7";
   margin-right: 15px
 }
 .container-max.logosearch>.row>div[class*=col-] {
@@ -235,6 +245,16 @@ i.fa.fa-shopping-cart {
 .middlefooter li.phone:before {
   content: "\e182";
   font-family: 'Glyphicons Halflings';
+  margin: 0 8px 0 -6px
+}
+.middlefooter li.whatsapp {
+  font-size: 16px;
+  margin-bottom: -8px
+}
+
+.middlefooter li.whatsapp:before {
+  content: "\f232";
+  font-family: 'Font Awesome 5 Brands';
   margin: 0 8px 0 -6px
 }
 
@@ -282,6 +302,20 @@ div#top-mini-bar.sticky{
 display: none;
 
 }
+div#page-body {
+    margin-top: 0px;
+    background: white;
+    max-width: 1200px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.contentsticky{
+  padding-top: 102px;
+
+}
 div#mainNavbarCollapsable.sticky{
   animation: 2s ease 0s normal forwards 1 running slidedown;
   -webkit-animation-name: slidedown;
@@ -299,14 +333,11 @@ div#mainNavbarCollapsable.sticky{
   -webkit-transform: translateY(-100px);
   -ms-transform: translateY(-100px);
   -moz-transform: translateY(-100px);
-  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.4) !important;
   max-height: 100%;
   padding: 0;
-  position: fixed !important;
   top: 0 !important;
   width: 100%;
   border-top: none;
-  background: #fff;
   z-index: 9999
 }
 
@@ -346,3 +377,33 @@ div#mainNavbarCollapsable.sticky{
     -moz-transform: translateY(0px)
   }
 }
+
+@media (min-width: 992px){
+#mainNavbarCollapsable ul.mainmenu>li>ul>li {
+    color: #fffefe;
+    text-align: left;
+}
+}
+
+.top-bar .controls-list>li a:not(.btn) {
+    padding: 0.5rem .8rem;
+    display: inline-block;
+}
+.top-bar .controls-list {
+    margin-bottom: 0;
+    font-size: 0;
+    display: flex;
+}
+.normalmenu .collapse {
+  z-index:1
+}
+.control-basket .toggle-basket-preview {
+background-color: transparent;
+}
+.control-basket .toggle-basket-preview:hover{
+  background-color: transparent;
+}
+@media (max-width: 991.98px){
+nav.navbar .container-max>div.row .brand-wrapper {
+    width: 100%;
+}}
