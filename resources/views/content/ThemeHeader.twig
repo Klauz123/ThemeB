@@ -7,19 +7,19 @@
                             {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
                                   <ul id="controlsList" class="controls-list list-inline">
                                       <li class="list-inline-item addedlist">
-                                        <a href="/"><span class="hidden-xs-down">Home</span></a>
+                                        <a href="{{ homepageURL }}"><span class="hidden-xs-down">Home</span></a>
                                       </li>
                                       <li class="list-inline-item addedlist">
-                                        <a href="https://www.beeketal.de/content/versand/"><span class="hidden-xs-down">{{ trans("Ceres::Template.paymentshipping") }}</span></a>
+                                        <a href="{{ services.url.getURLById(8, lang) }}"><span class="hidden-xs-down">{{ trans("Ceres::Template.paymentshipping") }}</span></a>
                                       </li>
                                       <li class="list-inline-item addedlist">
                                         <a href="https://www.youtube.com/user/BEEKETAL/videos"><span class="hidden-xs-down">{{ trans("Ceres::Template.productVideos") }}</span></a>
                                       </li>
                                       <li class="list-inline-item addedlist">
-                                        <a href="/contact"><span class="hidden-xs-down">{{ trans("Ceres::Template.footerContact") }}</span></a>
+                                        <a href="{{ urls.contact }}"><span class="hidden-xs-down">{{ trans("Ceres::Template.footerContact") }}</span></a>
                                       </li>
                                       <li class="list-inline-item addedlist">
-                                        <a href="https://www.beeketal.de/legal-disclosure"><span class="hidden-xs-down">{{ trans("Ceres::Template.footerLegalDisclosure") }}</span></a>
+                                        <a href="{{ urls.legalDisclosure }}"><span class="hidden-xs-down">{{ trans("Ceres::Template.footerLegalDisclosure") }}</span></a>
                                       </li>
 
                                         <li class="list-inline-item control-user">
@@ -227,7 +227,7 @@
 
         <div class="col-xs-7 col-sm-5">
           <div class="brand-wrapper">
-            <a href="/" class="navbar-brand float-lg-left"><img alt="Beeketal Lebensmitteltechnik" src="https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/LogoWebsiteBeeketal.jpg" crossorigin="anonymous" class="img-fluid"></a>
+            <a href="{{ homepageURL }}" class="navbar-brand float-lg-left"><img alt="Beeketal Lebensmitteltechnik" src="https://cdn03.plentymarkets.com/9gijel06z7qn/frontend/LogoWebsiteBeeketal.jpg" crossorigin="anonymous" class="img-fluid"></a>
 
           </div></div>
           <div class="col-md-5 search-top hidden-sm-down mt-1">
